@@ -1,0 +1,2 @@
+com/example/deploy/DeployApplicationTests.java
+ com.example.deploy.DeployApplicationTests
