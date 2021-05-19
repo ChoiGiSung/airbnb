@@ -9,10 +9,12 @@ public class Rooms {
     private boolean wish;
     private String thumbnailImage;
     private Coordinate coordinate;
+    private Review review;
 
 
-    public Rooms(Long id, String name, int pricePerData, HomeDetail homeDetail, String type,
-                 boolean wish, String thumbnailImage, Coordinate coordinate) {
+
+    public Rooms(Long id, String name, int pricePerData, HomeDetail homeDetail, String type
+            , boolean wish, String thumbnailImage, Coordinate coordinate, Review review) {
         this.id = id;
         this.name = name;
         this.pricePerData = pricePerData;
@@ -21,6 +23,11 @@ public class Rooms {
         this.wish = wish;
         this.thumbnailImage = thumbnailImage;
         this.coordinate = coordinate;
+        this.review = review;
+    }
+
+    public Review getReview() {
+        return review;
     }
 
     public static class Coordinate{
