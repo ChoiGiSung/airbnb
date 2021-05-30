@@ -2,23 +2,27 @@ PODS:
   - FSCalendar (2.8.2)
   - GooglePlaces (5.0.0)
   - Kingfisher (6.3.0)
+  - SwiftCharts (0.6.5)
 
 DEPENDENCIES:
   - FSCalendar
   - GooglePlaces (= 5.0.0)
   - Kingfisher (~> 6.0)
+  - SwiftCharts (~> 0.6.5)
 
 SPEC REPOS:
   trunk:
     - FSCalendar
     - GooglePlaces
     - Kingfisher
+    - SwiftCharts
 
 SPEC CHECKSUMS:
   FSCalendar: e6a2eb9c571bf0719ed797ef807e08426753c241
   GooglePlaces: 5d87ca13ed98b7a937e0d8bc7026f718c7263271
   Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
+  SwiftCharts: 2e755ea292f0b87d3e4b2c1eb5afc080a20cdc15
 
-PODFILE CHECKSUM: ed60fd9e9e4fc526b69e8c8a10ac8a233505f54e
+PODFILE CHECKSUM: 5c95849f0e6a163851498a24eb6fafb3a34e5547
 
 COCOAPODS: 1.10.1

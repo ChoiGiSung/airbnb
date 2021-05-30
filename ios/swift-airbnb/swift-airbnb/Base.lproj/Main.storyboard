@@ -335,39 +335,106 @@
                     <connections>
                         <outlet property="calendarView" destination="TGX-2F-nqR" id="1Vy-s7-1NG"/>
                         <outlet property="informationView" destination="giU-fq-pl1" id="Zx3-5w-CB6"/>
+                        <outlet property="tabBarView" destination="Ut0-fR-OPs" id="woW-xZ-6EI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xDZ-xE-5R9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6395.652173913044" y="-95.089285714285708"/>
         </scene>
-        <!--Search Table View Controller-->
-        <scene sceneID="xgw-jD-gbG">
+        <!--Chart View Controller-->
+        <scene sceneID="8mL-eA-lex">
             <objects>
-                <tableViewController id="hIr-8u-J0V" customClass="SearchTableViewController" customModule="swift_airbnb" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="y3r-af-ghg">
+                <viewController storyboardIdentifier="chartViewController" id="dvS-0z-qwA" customClass="ChartViewController" customModule="swift_airbnb" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="a8I-Vg-8ur">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ua8-kw-Z8n" customClass="InformationView" customModule="swift_airbnb" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="633" width="414" height="180"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="67x-JC-PSQ"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oQf-OK-KZ7" customClass="TabBarView" customModule="swift_airbnb" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="813" width="414" height="83"/>
+                                <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="83" id="7W6-8m-gfZ"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hsT-5t-caj">
+                                <rect key="frame" x="0.0" y="44" width="414" height="589"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가격 범위" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Puh-xV-k9g">
+                                        <rect key="frame" x="16" y="32" width="63" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="평균 1박 요금은 ₩165,556 입니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RuO-FB-JMA">
+                                        <rect key="frame" x="16" y="97" width="180" height="14.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="180" id="bgw-ln-KEO"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" systemColor="systemGray2Color"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZO-UO-11a">
+                                        <rect key="frame" x="16" y="68.5" width="41.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="48L-eQ-E1R">
+                                        <rect key="frame" x="65.5" y="68.5" width="8" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KzA-AX-XHg">
+                                        <rect key="frame" x="81.5" y="69" width="41.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="48L-eQ-E1R" firstAttribute="leading" secondItem="tZO-UO-11a" secondAttribute="trailing" constant="8" id="5Nv-oL-KUF"/>
+                                    <constraint firstItem="KzA-AX-XHg" firstAttribute="leading" secondItem="48L-eQ-E1R" secondAttribute="trailing" constant="8" id="6jT-bC-0rT"/>
+                                    <constraint firstItem="RuO-FB-JMA" firstAttribute="top" secondItem="tZO-UO-11a" secondAttribute="bottom" constant="8" id="7la-WJ-F2p"/>
+                                    <constraint firstItem="Puh-xV-k9g" firstAttribute="leading" secondItem="hsT-5t-caj" secondAttribute="leading" constant="16" id="DGw-OZ-fq8"/>
+                                    <constraint firstItem="48L-eQ-E1R" firstAttribute="top" secondItem="Puh-xV-k9g" secondAttribute="bottom" constant="16" id="H7w-TS-6nm"/>
+                                    <constraint firstItem="Puh-xV-k9g" firstAttribute="top" secondItem="hsT-5t-caj" secondAttribute="top" constant="32" id="IdD-fN-pTh"/>
+                                    <constraint firstItem="KzA-AX-XHg" firstAttribute="top" secondItem="hsT-5t-caj" secondAttribute="top" constant="69" id="W9P-ak-qgd"/>
+                                    <constraint firstItem="tZO-UO-11a" firstAttribute="leading" secondItem="hsT-5t-caj" secondAttribute="leading" constant="16" id="Yvk-Bi-OvJ"/>
+                                    <constraint firstItem="tZO-UO-11a" firstAttribute="top" secondItem="Puh-xV-k9g" secondAttribute="bottom" constant="16" id="rrl-PM-amG"/>
+                                    <constraint firstItem="RuO-FB-JMA" firstAttribute="leading" secondItem="hsT-5t-caj" secondAttribute="leading" constant="16" id="sqn-hg-fey"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="oxM-48-gi1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchResultTableViewCell" id="Txt-Fl-zxM" customClass="SearchResultTableViewCell" customModule="swift_airbnb" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Txt-Fl-zxM" id="5U0-ev-RBO">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="hIr-8u-J0V" id="sdB-tU-nJF"/>
-                            <outlet property="delegate" destination="hIr-8u-J0V" id="YYJ-rI-Jkv"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CTE-88-Cyh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <constraints>
+                            <constraint firstItem="oQf-OK-KZ7" firstAttribute="trailing" secondItem="oxM-48-gi1" secondAttribute="trailing" id="1XQ-3k-3B8"/>
+                            <constraint firstItem="oQf-OK-KZ7" firstAttribute="leading" secondItem="oxM-48-gi1" secondAttribute="leading" id="1ng-EA-O9T"/>
+                            <constraint firstItem="Ua8-kw-Z8n" firstAttribute="top" secondItem="hsT-5t-caj" secondAttribute="bottom" id="7vC-Yj-BQG"/>
+                            <constraint firstItem="oQf-OK-KZ7" firstAttribute="top" secondItem="Ua8-kw-Z8n" secondAttribute="bottom" id="H0v-CI-tv9"/>
+                            <constraint firstItem="hsT-5t-caj" firstAttribute="top" secondItem="oxM-48-gi1" secondAttribute="top" id="Kcf-kg-grw"/>
+                            <constraint firstItem="Ua8-kw-Z8n" firstAttribute="leading" secondItem="oxM-48-gi1" secondAttribute="leading" id="PUh-jp-bWD"/>
+                            <constraint firstAttribute="bottom" secondItem="oQf-OK-KZ7" secondAttribute="bottom" id="ZgR-zx-keV"/>
+                            <constraint firstItem="hsT-5t-caj" firstAttribute="leading" secondItem="oxM-48-gi1" secondAttribute="leading" id="ak8-w0-23F"/>
+                            <constraint firstItem="oxM-48-gi1" firstAttribute="trailing" secondItem="hsT-5t-caj" secondAttribute="trailing" id="uCt-lB-1Yc"/>
+                            <constraint firstItem="oxM-48-gi1" firstAttribute="trailing" secondItem="Ua8-kw-Z8n" secondAttribute="trailing" id="wEE-4b-Db1"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HZy-fz-L4k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7620" y="-95"/>
+            <point key="canvasLocation" x="7353.6231884057979" y="-95.089285714285708"/>
         </scene>
         <!--Item-->
         <scene sceneID="7sV-mu-vkd">
@@ -454,6 +521,9 @@
         <image name="person" catalog="system" width="128" height="117"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

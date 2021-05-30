@@ -3,10 +3,12 @@ import UIKit
 import GooglePlaces
 
 class SearchViewController: UIViewController {
-
-    private var travelCollectionViewDataSource = TravelCollectionViewDataSource()
+    
+    private var fetchCityManager = FetchCityManager.shared
+    private lazy var travelCollectionViewDataSource = TravelCollectionViewDataSource(fetchCityManager: fetchCityManager)
     private var resultController = GMSAutocompleteResultsViewController()
     @IBOutlet weak var travelCollectionView: UICollectionView!
+    private var information = Information.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,9 +63,11 @@ extension SearchViewController: UISearchBarDelegate {
 
 extension SearchViewController: GMSAutocompleteResultsViewControllerDelegate {
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController, didAutocompleteWith place: GMSPlace) {
-        print("Place name: \(String(describing: place.name))")
         dismiss(animated: true, completion: nil)
-        guard let calendarViewController = self.storyboard?.instantiateViewController(identifier: "calendarViewController") else { return }
+        guard let calendarViewController = self.storyboard?.instantiateViewController(identifier: "calendarViewController") as? CalendarViewController else { return }
+        guard let name = place.name else { return }
+        print(name)
+        information.setName(name: name)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
             self.navigationController?.pushViewController(calendarViewController, animated: true)
         })

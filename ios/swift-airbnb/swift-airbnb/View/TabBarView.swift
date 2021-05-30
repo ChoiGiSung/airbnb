@@ -1,9 +1,3 @@
-//
-//  TabBarView.swift
-//  swift-airbnb
-//
-//  Created by sonjuhyeong on 2021/05/25.
-//
 
 import UIKit
 
@@ -44,5 +38,6 @@ class TabBarView: UIView {
             self.nextButton.isEnabled = true
         }
     }
+
 
 }
