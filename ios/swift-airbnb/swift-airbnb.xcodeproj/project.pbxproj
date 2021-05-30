@@ -15,6 +15,11 @@
 		BD202926265CA1E50078DE4B /* InformationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD202925265CA1E50078DE4B /* InformationView.xib */; };
 		BD202928265CC4E10078DE4B /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD202927265CC4E10078DE4B /* TabBarView.swift */; };
 		BD20292A265CC4F10078DE4B /* TabBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD202929265CC4F10078DE4B /* TabBarView.xib */; };
+		BD7C601B265F64E10092FB80 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7C601A265F64E10092FB80 /* EndPoint.swift */; };
+		BD7C601D265F64F70092FB80 /* FetchCityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7C601C265F64F70092FB80 /* FetchCityManager.swift */; };
+		BD7C6020265F688B0092FB80 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7C601F265F688B0092FB80 /* Entity.swift */; };
+		BD7C6022265F9B030092FB80 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7C6021265F9B030092FB80 /* NotificationName.swift */; };
+		BDBA7B7C2663640E00550733 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBA7B7B2663640E00550733 /* ChartViewController.swift */; };
 		BDCCB7252654FA23006FD4F5 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCCB7242654FA23006FD4F5 /* SearchViewController.swift */; };
 		BDFD8B0426527A04006CA75A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFD8B0326527A04006CA75A /* AppDelegate.swift */; };
 		BDFD8B0626527A04006CA75A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFD8B0526527A04006CA75A /* SceneDelegate.swift */; };
@@ -63,6 +68,11 @@
 		BD202925265CA1E50078DE4B /* InformationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InformationView.xib; sourceTree = "<group>"; };
 		BD202927265CC4E10078DE4B /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		BD202929265CC4F10078DE4B /* TabBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabBarView.xib; sourceTree = "<group>"; };
+		BD7C601A265F64E10092FB80 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		BD7C601C265F64F70092FB80 /* FetchCityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCityManager.swift; sourceTree = "<group>"; };
+		BD7C601F265F688B0092FB80 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
+		BD7C6021265F9B030092FB80 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
+		BDBA7B7B2663640E00550733 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		BDCCB7242654FA23006FD4F5 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		BDFD8B0026527A04006CA75A /* swift-airbnb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swift-airbnb.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDFD8B0326527A04006CA75A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -144,12 +154,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BD7C601E265F67AE0092FB80 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BDFD8B38265284ED006CA75A /* Network */,
+				BD7C601F265F688B0092FB80 /* Entity.swift */,
+				BD7C6021265F9B030092FB80 /* NotificationName.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		BDCCB7262654FA28006FD4F5 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				BDFD8B0726527A04006CA75A /* MainViewController.swift */,
 				BDCCB7242654FA23006FD4F5 /* SearchViewController.swift */,
 				BD01444E265BE5910047246C /* CalendarViewController.swift */,
+				BDBA7B7B2663640E00550733 /* ChartViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -188,11 +209,11 @@
 		BDFD8B0226527A04006CA75A /* swift-airbnb */ = {
 			isa = PBXGroup;
 			children = (
+				BD7C601E265F67AE0092FB80 /* Model */,
 				BDCCB7272654FA3E006FD4F5 /* AppLifeCycle */,
 				BDCCB7262654FA28006FD4F5 /* ViewController */,
 				BDFD8B442653A1B8006CA75A /* DataSouce */,
 				BDFD8B3F265394E4006CA75A /* View */,
-				BDFD8B38265284ED006CA75A /* Network */,
 				BDFD8B0926527A04006CA75A /* Main.storyboard */,
 				BDFD8B0C26527A05006CA75A /* Assets.xcassets */,
 				BDFD8B0E26527A05006CA75A /* LaunchScreen.storyboard */,
@@ -223,6 +244,8 @@
 			isa = PBXGroup;
 			children = (
 				BDFD8B3B265285A1006CA75A /* NetworkManager.swift */,
+				BD7C601A265F64E10092FB80 /* EndPoint.swift */,
+				BD7C601C265F64F70092FB80 /* FetchCityManager.swift */,
 				BDFD8B39265284F8006CA75A /* DTO */,
 			);
 			path = Network;
@@ -546,7 +569,10 @@
 			files = (
 				BDCCB7252654FA23006FD4F5 /* SearchViewController.swift in Sources */,
 				BDFD8B4226539A8C006CA75A /* TravelCollectionViewCell.swift in Sources */,
+				BD7C6022265F9B030092FB80 /* NotificationName.swift in Sources */,
+				BD7C601D265F64F70092FB80 /* FetchCityManager.swift in Sources */,
 				BDFD8B0826527A04006CA75A /* MainViewController.swift in Sources */,
+				BDBA7B7C2663640E00550733 /* ChartViewController.swift in Sources */,
 				BDFD8B0426527A04006CA75A /* AppDelegate.swift in Sources */,
 				BDFD8B3C265285A1006CA75A /* NetworkManager.swift in Sources */,
 				BDFD8B0626527A04006CA75A /* SceneDelegate.swift in Sources */,
@@ -556,6 +582,8 @@
 				BDFD8B4A2653AD36006CA75A /* TravelCollectionViewDataSource.swift in Sources */,
 				BDFD8B4C2653AE1E006CA75A /* RecommendTravelCollectionViewDataSource.swift in Sources */,
 				BD202928265CC4E10078DE4B /* TabBarView.swift in Sources */,
+				BD7C601B265F64E10092FB80 /* EndPoint.swift in Sources */,
+				BD7C6020265F688B0092FB80 /* Entity.swift in Sources */,
 				BDFD8B4F2653D01D006CA75A /* RecommendTravelCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

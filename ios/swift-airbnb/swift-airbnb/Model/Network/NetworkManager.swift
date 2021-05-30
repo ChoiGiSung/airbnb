@@ -2,9 +2,9 @@
 import Foundation
 import Alamofire
 
-class NetworkManager {
+struct NetworkManager {
     
-    static func reequest<T: Decodable>(url: String, completionHandler: @escaping (Result<T, Error>) -> Void) {
+    func reequest<T: Decodable>(url: String, completionHandler: @escaping (Result<T, Error>) -> Void) {
         AF.request(url, method: .get)
             .validate(statusCode: 200..<300)
             .responseDecodable(of: T.self) { response in
@@ -16,4 +16,10 @@ class NetworkManager {
                 }
             }
     }
+    
+    
+}
+enum HTTPMethod: String {
+    case get = "GET"
+    case post = "POST"
 }

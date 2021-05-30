@@ -7,8 +7,6 @@ class InformationView: UIView {
     @IBOutlet weak var checkLabel: UILabel!
     @IBOutlet weak var feeLabel: UILabel!
     @IBOutlet weak var personnelLabel: UILabel!
-    
-    private let dateFormatter = DateFormatter()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,13 +26,13 @@ class InformationView: UIView {
         self.addSubview(xibView)
     }
 
-    func InputCheckLabel(dayArr: [Date]) {
-        dateFormatter.dateFormat = "MM월 dd일"
-        let convertArr = dayArr.sorted()
-        let firstDay = dateFormatter.string(from: convertArr[0])
-        let lastDay = dateFormatter.string(from: convertArr.last ?? Date())
-        
-        self.checkLabel.text = "\(firstDay)-\(lastDay)"
+    func configureCheckLabel(days: [String]) {
+        self.checkLabel.text = "\(days[0])\(days[1])"
         self.checkLabel.textColor = UIColor.systemGray2
     }
+    
+    func configureLocationLabel(name: String) {
+        self.locationLabel.text = name
+    }
+    
 }

@@ -6,19 +6,22 @@ class CalendarViewController: UIViewController {
 
     @IBOutlet weak var calendarView: FSCalendar!
     @IBOutlet weak var informationView: InformationView!
+    @IBOutlet weak var tabBarView: TabBarView!
     
-    private let tabBarView = TabBarView()
+    private let dateFormatter = DateFormatter()
+    private let information = Information.shared
     
     private var dayArray = [Date]()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCalendar()
-        
+        dateFormatter.dateFormat = "MM월 dd일"
         navigationItem.title = "숙소 찾기"
         configureDelegateAndDataSource()
+        setLocationLabel()
     }
+
     
     func configureCalendar() {
         calendarView.appearance.weekdayTextColor = UIColor.black
@@ -34,19 +37,50 @@ class CalendarViewController: UIViewController {
         calendarView.delegate = self
         calendarView.dataSource = self
     }
+    
+    //MARK: - InformationView Update Method
+    func convertDateToString(date: Date) -> [String] {
+        dayArray.append(date)
+        let resultArr = dayArray.sorted()
+        return [dateFormatter.string(from: resultArr[0]), "-\(dateFormatter.string(from: resultArr[dayArray.count - 1]))"]
+    }
+    
+    func deleteSelectedDate(date: Date) -> [String] {
+        if dayArray.count >= 2 {
+            dayArray.remove(at: dayArray.firstIndex(of: date) ?? 0)
+            let resultArr = dayArray.sorted()
+            return [dateFormatter.string(from: resultArr[0]), "-\(dateFormatter.string(from: resultArr[dayArray.count - 1]))"]
+        } else if dayArray.count == 0 {
+            dayArray.remove(at: dayArray.firstIndex(of: date) ?? 0)
+            return ["",""]
+        } else {
+            let resultArr = dayArray.sorted()
+            return [dateFormatter.string(from: resultArr[0]), ""]
+        }
+    }
+    
+    func setLocationLabel() {
+        informationView.locationLabel.text = information.returnName()
+        informationView.locationLabel.textColor = .systemGray2
+    }
+    
+    
+    //MARK: - Notification Method
+//    @objc private func setPlaceName(_ notification: Notification) {
+//        
+//        guard let name = notification.userInfo?["placeName"] as? String else { return }
+//        informationView.configureLocationLabel(name: name)
+//    }
 
 }
 
 extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
     
-    // 날짜 선택 시 콜백 메소드
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        dayArray.append(date)
-        informationView.InputCheckLabel(dayArr: dayArray)
+        informationView.configureCheckLabel(days: convertDateToString(date: date))
     }
-    // 날짜 선택 해제 시 콜백 메소드
-    public func calendar(_ calendar: FSCalendar, didDeselect date: Date, at monthPosition: FSCalendarMonthPosition) {
-//        print(dateFormatter.string(from: date) + " 해제됨")
-        dayArray.remove(at: dayArray.firstIndex(of: date) ?? 0)
+    
+    func calendar(_ calendar: FSCalendar, didDeselect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        informationView.configureCheckLabel(days: deleteSelectedDate(date: date))
     }
 }
