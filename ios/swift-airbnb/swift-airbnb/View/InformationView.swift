@@ -4,8 +4,12 @@ import UIKit
 class InformationView: UIView {
     
     @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var checkLabel: UILabel!
-    @IBOutlet weak var feeLabel: UILabel!
+    @IBOutlet weak var checkInLabel: UILabel!
+    @IBOutlet weak var checkOutLabel: UILabel!
+    @IBOutlet weak var dayHyphenLabel: UILabel!
+    @IBOutlet weak var minimumPriceLabel: UILabel!
+    @IBOutlet weak var maximumPriceLabel: UILabel!
+    @IBOutlet weak var priceHyphenLabel: UILabel!
     @IBOutlet weak var personnelLabel: UILabel!
 
     override init(frame: CGRect) {
@@ -27,12 +31,15 @@ class InformationView: UIView {
     }
 
     func configureCheckLabel(days: [String]) {
-        self.checkLabel.text = "\(days[0])\(days[1])"
-        self.checkLabel.textColor = UIColor.systemGray2
+        self.checkInLabel.text = "\(days[0])"
+        self.checkOutLabel.text = "\(days[1])"
+        self.checkInLabel.textColor = UIColor.systemGray2
+        self.checkOutLabel.textColor = UIColor.systemGray2
     }
     
     func configureLocationLabel(name: String) {
         self.locationLabel.text = name
     }
+    
     
 }
