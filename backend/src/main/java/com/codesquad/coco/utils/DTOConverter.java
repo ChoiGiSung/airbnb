@@ -30,7 +30,8 @@ public class DTOConverter {
                 room.getThumbnailImage(),
                 locationToLocationDTO(room.getLocation()),
                 reviewToReviewDTO(room.getReview()),
-                room.calcTotalPrice(fewNights)
+                room.calcTotalPrice(fewNights),
+                room.getDescription()
         );
     }
 

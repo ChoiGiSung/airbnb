@@ -12,8 +12,9 @@ public class RoomPreviewDTO {
     private LocationDTO coordinate;
     private ReviewDTO review;
     private int totalPrice;
+    private String description;
 
-    private RoomPreviewDTO(Long id, String name, int pricePerDate, RoomOptionDTO homeDetails, String type, boolean wish, String thumbnailImage, LocationDTO coordinate, ReviewDTO reviewDTO, int totalPrice) {
+    private RoomPreviewDTO(Long id, String name, int pricePerDate, RoomOptionDTO homeDetails, String type, boolean wish, String thumbnailImage, LocationDTO coordinate, ReviewDTO reviewDTO, int totalPrice, String description) {
         this.id = id;
         this.name = name;
         this.pricePerDate = pricePerDate;
@@ -24,14 +25,15 @@ public class RoomPreviewDTO {
         this.coordinate = coordinate;
         this.review = reviewDTO;
         this.totalPrice = totalPrice;
+        this.description = description;
     }
 
-    public static RoomPreviewDTO of(Long id, String name, int pricePerDate, RoomOptionDTO homeDetails, String type, boolean wish, String thumbnailImage, LocationDTO coordinate, ReviewDTO reviewDTO, int totalPrice) {
-        return new RoomPreviewDTO(id, name, pricePerDate, homeDetails, type, wish, thumbnailImage, coordinate, reviewDTO, totalPrice);
+    public static RoomPreviewDTO of(Long id, String name, int pricePerDate, RoomOptionDTO homeDetails, String type, boolean wish, String thumbnailImage, LocationDTO coordinate, ReviewDTO reviewDTO, int totalPrice, String description) {
+        return new RoomPreviewDTO(id, name, pricePerDate, homeDetails, type, wish, thumbnailImage, coordinate, reviewDTO, totalPrice, description);
     }
 
-    public void setTotalPrice(int totalPrice) {
-        this.totalPrice = totalPrice;
+    public String getDescription() {
+        return description;
     }
 
     public Long getId() {
@@ -72,5 +74,9 @@ public class RoomPreviewDTO {
 
     public int getTotalPrice() {
         return totalPrice;
+    }
+
+    public void setTotalPrice(int totalPrice) {
+        this.totalPrice = totalPrice;
     }
 }
