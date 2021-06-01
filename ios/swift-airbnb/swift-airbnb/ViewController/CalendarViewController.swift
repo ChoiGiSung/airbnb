@@ -14,8 +14,8 @@ class CalendarViewController: UIViewController {
         formatter.dateFormat = "yyyy-MM-dd"
         return formatter
     }()
+    
     private let information = Information.shared
-    private var fetchPriceManager = FetchPriceManager.shared
     private var selectedDayArray = [Date]()
     
     override func viewDidLoad() {
@@ -24,7 +24,6 @@ class CalendarViewController: UIViewController {
         navigationItem.title = "숙소 찾기"
         configureDelegateAndDataSource()
         setLocationLabel()
-
     }
 
     
@@ -47,6 +46,7 @@ class CalendarViewController: UIViewController {
     func convertDateToString() -> [String] {
         selectedDayArray.sort()
         if selectedDayArray.count >= 2 {
+            informationView.configureDayHyphenLabel()
             return [formatter.string(from: selectedDayArray[0]), formatter.string(from: selectedDayArray[selectedDayArray.count - 1])]
         } else if selectedDayArray.count  == 1 {
             return [formatter.string(from: selectedDayArray[0]), ""]
@@ -62,8 +62,7 @@ class CalendarViewController: UIViewController {
     }
     
     func setLocationLabel() {
-        informationView.locationLabel.text = information.returnName()
-        informationView.locationLabel.textColor = .systemGray2
+        informationView.locationLabel.text = information.getName()
     }
     
     @IBAction func ButtonAction(_ sender: Any){
@@ -72,13 +71,7 @@ class CalendarViewController: UIViewController {
         information.setCheckInAndCheckOut(checkIn: formatter.string(from: selectedDayArray[0]), checkOut: formatter.string(from: selectedDayArray[selectedDayArray.count - 1]))
         
         // 네트워크 처리를 통한 가격 불러오기
-        print(information.returnName())
-        print(information.returnCheckIn())
-        print(information.returnCheckOut())
-        
-        fetchPriceManager.fetchData(checkIn: information.returnCheckIn(), checkOut: information.returnCheckOut(), city: information.returnName())
     }
-    
 }
 
 extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {

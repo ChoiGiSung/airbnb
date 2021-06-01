@@ -9,6 +9,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSPlacesClient.provideAPIKey("AIzaSyAFDxUP5ceio3yQpf8IrUuPpO6y9jsuPSE")
         return true
     }
-
+    
 }
 

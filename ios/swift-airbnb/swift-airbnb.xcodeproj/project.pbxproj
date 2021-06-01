@@ -13,8 +13,6 @@
 		BD01444F265BE5910047246C /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD01444E265BE5910047246C /* CalendarViewController.swift */; };
 		BD202924265CA1C20078DE4B /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD202923265CA1C20078DE4B /* InformationView.swift */; };
 		BD202926265CA1E50078DE4B /* InformationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD202925265CA1E50078DE4B /* InformationView.xib */; };
-		BD202928265CC4E10078DE4B /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD202927265CC4E10078DE4B /* TabBarView.swift */; };
-		BD20292A265CC4F10078DE4B /* TabBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD202929265CC4F10078DE4B /* TabBarView.xib */; };
 		BD7C601B265F64E10092FB80 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7C601A265F64E10092FB80 /* EndPoint.swift */; };
 		BD7C601D265F64F70092FB80 /* FetchCityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7C601C265F64F70092FB80 /* FetchCityManager.swift */; };
 		BD7C6022265F9B030092FB80 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7C6021265F9B030092FB80 /* NotificationName.swift */; };
@@ -68,8 +66,6 @@
 		BD01444E265BE5910047246C /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		BD202923265CA1C20078DE4B /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
 		BD202925265CA1E50078DE4B /* InformationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InformationView.xib; sourceTree = "<group>"; };
-		BD202927265CC4E10078DE4B /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
-		BD202929265CC4F10078DE4B /* TabBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabBarView.xib; sourceTree = "<group>"; };
 		BD7C601A265F64E10092FB80 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		BD7C601C265F64F70092FB80 /* FetchCityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCityManager.swift; sourceTree = "<group>"; };
 		BD7C6021265F9B030092FB80 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
@@ -282,8 +278,6 @@
 				BDFD8B4E2653D01D006CA75A /* RecommendTravelCollectionViewCell.xib */,
 				BD202923265CA1C20078DE4B /* InformationView.swift */,
 				BD202925265CA1E50078DE4B /* InformationView.xib */,
-				BD202927265CC4E10078DE4B /* TabBarView.swift */,
-				BD202929265CC4F10078DE4B /* TabBarView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -418,7 +412,6 @@
 				BD202926265CA1E50078DE4B /* InformationView.xib in Resources */,
 				BDFD8B4326539A8C006CA75A /* TravelCollectionViewCell.xib in Resources */,
 				BDFD8B0B26527A04006CA75A /* Main.storyboard in Resources */,
-				BD20292A265CC4F10078DE4B /* TabBarView.xib in Resources */,
 				BDFD8B502653D01D006CA75A /* RecommendTravelCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -598,7 +591,6 @@
 				BDCED2BB2664FCFF0087DD08 /* Information.swift in Sources */,
 				BDFD8B4A2653AD36006CA75A /* TravelCollectionViewDataSource.swift in Sources */,
 				BDFD8B4C2653AE1E006CA75A /* RecommendTravelCollectionViewDataSource.swift in Sources */,
-				BD202928265CC4E10078DE4B /* TabBarView.swift in Sources */,
 				BD7C601B265F64E10092FB80 /* EndPoint.swift in Sources */,
 				BDFD8B4F2653D01D006CA75A /* RecommendTravelCollectionViewCell.swift in Sources */,
 			);

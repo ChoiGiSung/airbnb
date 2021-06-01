@@ -13,4 +13,8 @@ class Price {
     func setPrices(prices: [Int])  {
         self.prices = prices
     }
+    
+    func getPrices() -> [Int] {
+        return self.prices
+    }
 }

@@ -22,24 +22,36 @@ class InformationView: UIView {
     }
 
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        let nib = UINib(nibName: "InformationView", bundle: Bundle.main)
-        guard let xibView = nib.instantiate(withOwner: self, options: nil).first as? UIView else { return }
-        xibView.frame = self.bounds
-        xibView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        self.addSubview(xibView)
-    }
+            super.init(coder: coder)
+            let nib = UINib(nibName: "InformationView", bundle: Bundle.main)
+            guard let xibView = nib.instantiate(withOwner: self, options: nil).first as? UIView else { return }
+            xibView.frame = self.bounds
+            xibView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            self.addSubview(xibView)
+        }
 
     func configureCheckLabel(days: [String]) {
         self.checkInLabel.text = "\(days[0])"
         self.checkOutLabel.text = "\(days[1])"
-        self.checkInLabel.textColor = UIColor.systemGray2
-        self.checkOutLabel.textColor = UIColor.systemGray2
+    }
+    
+    func configureCheckInLabel(checkIn: String) {
+        self.checkInLabel.text = checkIn
+    }
+    
+    func configureCheckOutLabel(checkOut: String) {
+        self.checkOutLabel.text = checkOut
     }
     
     func configureLocationLabel(name: String) {
         self.locationLabel.text = name
     }
     
+    func configureDayHyphenLabel() {
+        self.dayHyphenLabel.text = "-"
+    }
     
+    func configurePriceHyphenLabel() {
+        self.dayHyphenLabel.text = "-"
+    }
 }

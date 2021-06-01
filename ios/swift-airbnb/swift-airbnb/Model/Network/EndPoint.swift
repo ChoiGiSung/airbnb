@@ -8,7 +8,7 @@ struct EndPoint {
     private let host = "13.125.140.183"
     private let citypath = "/cities"
     private let searchPath = "/search"
-    private let pricePath = "/prices"
+    private let pricePath = "/search/prices"
     
     func searchCityURL() -> URL? {
         var componenets = URLComponents()
@@ -22,7 +22,6 @@ struct EndPoint {
         var componenets = URLComponents()
         componenets.scheme = scheme
         componenets.host = host
-        componenets.path = searchPath
         componenets.path = pricePath
         let checkIn = URLQueryItem(name: "check-in", value: checkIn)
         let checkOut = URLQueryItem(name: "check-out", value: checkOut)

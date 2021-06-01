@@ -48,7 +48,7 @@ class Information {
         }
     }
     
-    func returnName() -> String {
+    func getName() -> String {
         return self.name
     }
     
@@ -57,11 +57,11 @@ class Information {
         self.checkOut = checkOut
     }
     
-    func returnCheckIn() -> String {
+    func getCheckIn() -> String {
         return self.checkIn
     }
     
-    func returnCheckOut() -> String {
+    func getCheckOut() -> String {
         return self.checkOut
     }
     
