@@ -15,7 +15,8 @@ class FetchCityManager {
     }
     
     func fetchData() {
-        network.reequest(url: endPoint.searchCityURL(), completionHandler: { (result: Result<CitiesDTO, Error>) in
+        guard let url = endPoint.searchCityURL() else { return }
+        network.reequest(url: url, completionHandler: { (result: Result<CitiesDTO, Error>) in
             switch result {
             case .success(let data):
                 self.cities = data

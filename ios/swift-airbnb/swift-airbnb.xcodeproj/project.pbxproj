@@ -21,6 +21,8 @@
 		BDBA7B7C2663640E00550733 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBA7B7B2663640E00550733 /* ChartViewController.swift */; };
 		BDCCB7252654FA23006FD4F5 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCCB7242654FA23006FD4F5 /* SearchViewController.swift */; };
 		BDCED2BB2664FCFF0087DD08 /* Information.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCED2BA2664FCFF0087DD08 /* Information.swift */; };
+		BDCED2BD266525E10087DD08 /* FetchPriceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCED2BC266525E10087DD08 /* FetchPriceManager.swift */; };
+		BDCED2C0266529420087DD08 /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCED2BF266529420087DD08 /* Price.swift */; };
 		BDFD8B0426527A04006CA75A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFD8B0326527A04006CA75A /* AppDelegate.swift */; };
 		BDFD8B0626527A04006CA75A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFD8B0526527A04006CA75A /* SceneDelegate.swift */; };
 		BDFD8B0826527A04006CA75A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFD8B0726527A04006CA75A /* MainViewController.swift */; };
@@ -74,6 +76,8 @@
 		BDBA7B7B2663640E00550733 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		BDCCB7242654FA23006FD4F5 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		BDCED2BA2664FCFF0087DD08 /* Information.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Information.swift; sourceTree = "<group>"; };
+		BDCED2BC266525E10087DD08 /* FetchPriceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPriceManager.swift; sourceTree = "<group>"; };
+		BDCED2BF266529420087DD08 /* Price.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Price.swift; sourceTree = "<group>"; };
 		BDFD8B0026527A04006CA75A /* swift-airbnb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swift-airbnb.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDFD8B0326527A04006CA75A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDFD8B0526527A04006CA75A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -157,9 +161,9 @@
 		BD7C601E265F67AE0092FB80 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BDCED2BE2665292C0087DD08 /* Entity */,
 				BDFD8B38265284ED006CA75A /* Network */,
 				BD7C6021265F9B030092FB80 /* NotificationName.swift */,
-				BDCED2BA2664FCFF0087DD08 /* Information.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -182,6 +186,15 @@
 				BDFD8B0526527A04006CA75A /* SceneDelegate.swift */,
 			);
 			path = AppLifeCycle;
+			sourceTree = "<group>";
+		};
+		BDCED2BE2665292C0087DD08 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				BDCED2BF266529420087DD08 /* Price.swift */,
+				BDCED2BA2664FCFF0087DD08 /* Information.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		BDFD8AF726527A04006CA75A = {
@@ -246,6 +259,7 @@
 				BDFD8B3B265285A1006CA75A /* NetworkManager.swift */,
 				BD7C601A265F64E10092FB80 /* EndPoint.swift */,
 				BD7C601C265F64F70092FB80 /* FetchCityManager.swift */,
+				BDCED2BC266525E10087DD08 /* FetchPriceManager.swift */,
 				BDFD8B39265284F8006CA75A /* DTO */,
 			);
 			path = Network;
@@ -569,6 +583,7 @@
 			files = (
 				BDCCB7252654FA23006FD4F5 /* SearchViewController.swift in Sources */,
 				BDFD8B4226539A8C006CA75A /* TravelCollectionViewCell.swift in Sources */,
+				BDCED2BD266525E10087DD08 /* FetchPriceManager.swift in Sources */,
 				BD7C6022265F9B030092FB80 /* NotificationName.swift in Sources */,
 				BD7C601D265F64F70092FB80 /* FetchCityManager.swift in Sources */,
 				BDFD8B0826527A04006CA75A /* MainViewController.swift in Sources */,
@@ -579,6 +594,7 @@
 				BD202924265CA1C20078DE4B /* InformationView.swift in Sources */,
 				BDFD8B3E26528779006CA75A /* DTO.swift in Sources */,
 				BD01444F265BE5910047246C /* CalendarViewController.swift in Sources */,
+				BDCED2C0266529420087DD08 /* Price.swift in Sources */,
 				BDCED2BB2664FCFF0087DD08 /* Information.swift in Sources */,
 				BDFD8B4A2653AD36006CA75A /* TravelCollectionViewDataSource.swift in Sources */,
 				BDFD8B4C2653AE1E006CA75A /* RecommendTravelCollectionViewDataSource.swift in Sources */,

@@ -14,3 +14,7 @@ struct CityDTO: Decodable {
         case imageURL = "image_url"
     }
 }
+
+struct PriceDTO: Decodable {
+    let prices: [Int]
+}

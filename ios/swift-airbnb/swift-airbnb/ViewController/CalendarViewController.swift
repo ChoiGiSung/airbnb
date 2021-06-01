@@ -9,19 +9,22 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var skipButton: UIButton!
     
-    
-    private let dateFormatter = DateFormatter()
+    private let formatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter
+    }()
     private let information = Information.shared
-    
-    var dayArray = [Date]()
+    private var fetchPriceManager = FetchPriceManager.shared
+    private var selectedDayArray = [Date]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCalendar()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
         navigationItem.title = "숙소 찾기"
         configureDelegateAndDataSource()
         setLocationLabel()
+
     }
 
     
@@ -42,19 +45,19 @@ class CalendarViewController: UIViewController {
     
     //MARK: - InformationView Update Method
     func convertDateToString() -> [String] {
-        let resultArr = dayArray.sorted()
-        if resultArr.count >= 2 {
-            return [dateFormatter.string(from: resultArr[0]), dateFormatter.string(from: resultArr[dayArray.count - 1])]
-        } else if resultArr.count  == 1 {
-            return [dateFormatter.string(from: resultArr[0]), ""]
+        selectedDayArray.sort()
+        if selectedDayArray.count >= 2 {
+            return [formatter.string(from: selectedDayArray[0]), formatter.string(from: selectedDayArray[selectedDayArray.count - 1])]
+        } else if selectedDayArray.count  == 1 {
+            return [formatter.string(from: selectedDayArray[0]), ""]
         } else {
             return ["", ""]
         }
     }
     
     func deleteSelectedDate(date: Date) {
-        if dayArray.count > 0 {
-            dayArray.remove(at: dayArray.firstIndex(of: date) ?? 0)
+        if selectedDayArray.count > 0 {
+            selectedDayArray.remove(at: selectedDayArray.firstIndex(of: date) ?? 0)
         }
     }
     
@@ -66,7 +69,14 @@ class CalendarViewController: UIViewController {
     @IBAction func ButtonAction(_ sender: Any){
         guard let chartViewController = self.storyboard?.instantiateViewController(identifier: "chartViewController") as? ChartViewController else { return }
         self.navigationController?.pushViewController(chartViewController, animated: true)
+        information.setCheckInAndCheckOut(checkIn: formatter.string(from: selectedDayArray[0]), checkOut: formatter.string(from: selectedDayArray[selectedDayArray.count - 1]))
+        
         // 네트워크 처리를 통한 가격 불러오기
+        print(information.returnName())
+        print(information.returnCheckIn())
+        print(information.returnCheckOut())
+        
+        fetchPriceManager.fetchData(checkIn: information.returnCheckIn(), checkOut: information.returnCheckOut(), city: information.returnName())
     }
     
 }
@@ -74,9 +84,8 @@ class CalendarViewController: UIViewController {
 extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        dayArray.append(date)
+        selectedDayArray.append(date)
         informationView.configureCheckLabel(days: convertDateToString())
-        
     }
     
     func calendar(_ calendar: FSCalendar, didDeselect date: Date, at monthPosition: FSCalendarMonthPosition) {
