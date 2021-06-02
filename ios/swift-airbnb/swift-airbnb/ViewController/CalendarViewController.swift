@@ -49,8 +49,10 @@ class CalendarViewController: UIViewController {
             informationView.configureDayHyphenLabel()
             return [formatter.string(from: selectedDayArray[0]), formatter.string(from: selectedDayArray[selectedDayArray.count - 1])]
         } else if selectedDayArray.count  == 1 {
+            informationView.removeDayHyphenLabel()
             return [formatter.string(from: selectedDayArray[0]), ""]
         } else {
+            informationView.removeDayHyphenLabel()
             return ["", ""]
         }
     }

@@ -11,7 +11,7 @@ pod 'GooglePlaces', '5.0.0'
 
 pod 'FSCalendar'
 
-pod 'SwiftCharts', '~> 0.6.5'
+pod 'ZMSwiftRangeSlider', '~> 0.1.9'
 
   # Pods for swift-airbnb
 

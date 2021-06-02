@@ -1,0 +1,6 @@
+framework module ZMSwiftRangeSlider {
+  umbrella header "ZMSwiftRangeSlider-umbrella.h"
+
+  export *
+  module * { export * }
+}

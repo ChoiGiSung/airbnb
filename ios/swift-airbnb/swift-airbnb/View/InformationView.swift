@@ -51,6 +51,10 @@ class InformationView: UIView {
         self.dayHyphenLabel.text = "~"
     }
     
+    func removeDayHyphenLabel() {
+        self.dayHyphenLabel.text = ""
+    }
+    
     func configurePriceHyphenLabel() {
         self.dayHyphenLabel.text = "~"
     }

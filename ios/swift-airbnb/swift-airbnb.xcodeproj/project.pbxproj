@@ -18,6 +18,7 @@
 		BD7C6022265F9B030092FB80 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7C6021265F9B030092FB80 /* NotificationName.swift */; };
 		BDBA7B7C2663640E00550733 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBA7B7B2663640E00550733 /* ChartViewController.swift */; };
 		BDCBA2CD266745850050DE41 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCBA2CC266745850050DE41 /* Extension.swift */; };
+		BDCBA2CF26674D000050DE41 /* SelectNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCBA2CE26674D000050DE41 /* SelectNumberViewController.swift */; };
 		BDCCB7252654FA23006FD4F5 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCCB7242654FA23006FD4F5 /* SearchViewController.swift */; };
 		BDCED2BB2664FCFF0087DD08 /* Information.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCED2BA2664FCFF0087DD08 /* Information.swift */; };
 		BDCED2BD266525E10087DD08 /* FetchPriceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCED2BC266525E10087DD08 /* FetchPriceManager.swift */; };
@@ -72,6 +73,7 @@
 		BD7C6021265F9B030092FB80 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		BDBA7B7B2663640E00550733 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		BDCBA2CC266745850050DE41 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		BDCBA2CE26674D000050DE41 /* SelectNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectNumberViewController.swift; sourceTree = "<group>"; };
 		BDCCB7242654FA23006FD4F5 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		BDCED2BA2664FCFF0087DD08 /* Information.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Information.swift; sourceTree = "<group>"; };
 		BDCED2BC266525E10087DD08 /* FetchPriceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPriceManager.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				BDCCB7242654FA23006FD4F5 /* SearchViewController.swift */,
 				BD01444E265BE5910047246C /* CalendarViewController.swift */,
 				BDBA7B7B2663640E00550733 /* ChartViewController.swift */,
+				BDCBA2CE26674D000050DE41 /* SelectNumberViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -585,6 +588,7 @@
 				BDFD8B0826527A04006CA75A /* MainViewController.swift in Sources */,
 				BDBA7B7C2663640E00550733 /* ChartViewController.swift in Sources */,
 				BDFD8B0426527A04006CA75A /* AppDelegate.swift in Sources */,
+				BDCBA2CF26674D000050DE41 /* SelectNumberViewController.swift in Sources */,
 				BDFD8B3C265285A1006CA75A /* NetworkManager.swift in Sources */,
 				BDFD8B0626527A04006CA75A /* SceneDelegate.swift in Sources */,
 				BD202924265CA1C20078DE4B /* InformationView.swift in Sources */,

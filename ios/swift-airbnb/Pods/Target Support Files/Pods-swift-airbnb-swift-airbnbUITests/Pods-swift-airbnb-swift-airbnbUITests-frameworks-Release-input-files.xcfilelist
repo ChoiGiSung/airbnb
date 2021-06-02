@@ -1,4 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-swift-airbnb-swift-airbnbUITests/Pods-swift-airbnb-swift-airbnbUITests-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework
 ${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework
-${BUILT_PRODUCTS_DIR}/SwiftCharts/SwiftCharts.framework
+${BUILT_PRODUCTS_DIR}/ZMSwiftRangeSlider/ZMSwiftRangeSlider.framework
