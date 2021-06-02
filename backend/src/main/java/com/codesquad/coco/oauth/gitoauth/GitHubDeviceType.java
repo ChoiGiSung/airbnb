@@ -5,7 +5,7 @@ import com.codesquad.coco.utils.GetPropertyUtil;
 public enum GitHubDeviceType {
 
     IOS("github.ios.client.id", "github.ios.secret", "http://localhost:8080/git/auth/app"),
-    DESKTOP("github.desktop.client.id", "github.desktop.secret", "http://localhost:8080/git/auth");
+    DESKTOP("github.desktop.client.id", "github.desktop.secret", "http://localhost:3000/git/auth");
 
     private String clientKey;
     private String clientSecret;

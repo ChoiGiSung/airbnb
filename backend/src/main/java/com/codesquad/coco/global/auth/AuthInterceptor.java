@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Objects;
 
 @Component
 public class AuthInterceptor implements HandlerInterceptor {
@@ -28,7 +29,7 @@ public class AuthInterceptor implements HandlerInterceptor {
         }
 
         Auth auth = ((HandlerMethod) handler).getMethodAnnotation(Auth.class);
-        if (auth == null) {
+        if (Objects.isNull(auth)) {
             return true;
         }
         String jwt = getJWT(request);
@@ -43,7 +44,7 @@ public class AuthInterceptor implements HandlerInterceptor {
 
     private String getJWT(HttpServletRequest request) {
         String jwt = request.getHeader(JWTUtils.HEADER_TYPE);
-        if (jwt == null) {
+        if (Objects.isNull(jwt)) {
             throw new NotLoggedInException();
         }
         return jwt;
