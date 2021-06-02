@@ -12,6 +12,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 @RestControllerAdvice
@@ -75,6 +76,16 @@ public class CustomExceptionHandler {
         logger.error("device 에러", e);
         ErrorReason errorReason = ErrorReason.of(ErrorCode.UNKNOWN_DEVICE);
         return new ResponseEntity<>(errorReason, HttpStatus.UNAUTHORIZED);
+    }
+
+    /**
+     * RestTemplate  예외
+     **/
+    @ExceptionHandler(HttpClientErrorException.class)
+    protected ResponseEntity<ErrorReason> RestTemplateException(HttpClientErrorException e) {
+        logger.error("RestTemplate 에러", e);
+        ErrorReason errorReason = ErrorReason.of(ErrorCode.MAYBE_REST_TEMPLATE);
+        return new ResponseEntity<>(errorReason, HttpStatus.BAD_REQUEST);
     }
 
 
