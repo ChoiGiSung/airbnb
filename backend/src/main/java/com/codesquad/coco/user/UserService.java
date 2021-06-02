@@ -65,4 +65,8 @@ public class UserService {
         userDAO.insertUser(userInfo, accessToken);
         return;
     }
+
+    public GitUserInfoDTO getGitUserInfo(Long userID) {
+        return userDAO.findByGithubId(userID);
+    }
 }

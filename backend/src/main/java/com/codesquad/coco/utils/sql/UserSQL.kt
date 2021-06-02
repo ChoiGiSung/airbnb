@@ -22,3 +22,12 @@ from users
 where github_id = :github_id
 
 """
+
+
+const val FIND_BY_GITHUB_ID: String = """
+
+select id,github_id,login,email,profile_image_url
+from users
+where github_id = :github_id
+
+"""

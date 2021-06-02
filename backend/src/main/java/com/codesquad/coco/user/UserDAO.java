@@ -1,10 +1,14 @@
 package com.codesquad.coco.user;
 
+import com.codesquad.coco.global.exception.business.notfound.NotFoundUser;
 import com.codesquad.coco.oauth.gitoauth.GitUserInfoDTO;
+import com.codesquad.coco.utils.mapper.GitUserInfoDTOMapper;
 import oauth.AccessToken;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 import static com.codesquad.coco.utils.sql.UserSQLKt.*;
 
@@ -44,5 +48,12 @@ public class UserDAO {
                 .addValue("profile_image_url", userInfo.getAvatarUrl());
 
         template.update(UPDATE_USER_BY_GITHUB_ID, parameter);
+    }
+
+    public GitUserInfoDTO findByGithubId(Long userId) {
+        MapSqlParameterSource parameter = new MapSqlParameterSource()
+                .addValue("github_id", userId);
+        List<GitUserInfoDTO> users = template.query(FIND_BY_GITHUB_ID, parameter, new GitUserInfoDTOMapper());
+        return users.stream().findFirst().orElseThrow(NotFoundUser::new);
     }
 }
