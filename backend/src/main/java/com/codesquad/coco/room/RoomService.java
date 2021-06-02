@@ -37,6 +37,17 @@ public class RoomService {
                 .collect(Collectors.toList());
     }
 
+    public List<RoomPreviewDTO> findAllRoomLocationPreviewDTO(SearchRoomLocationDTO roomDTO) {
+        List<Room> rooms = roomDAO.findAllBySearchLocationRoomDTO(roomDTO);
+
+        int fewNights = LocalDateUtil.getAccommodationDay(roomDTO.getCheckIn(), roomDTO.getCheckOut());
+
+        //fixme : ? 해당 로직 괜찮을까요?
+        return rooms.stream()
+                .map(room -> DTOConverter.roomToRoomPreviewDTO(room, fewNights))
+                .collect(Collectors.toList());
+    }
+
     public RoomDetailDTO findRoomDetailDTO(Long roomId) {
         Room room = roomDAO.findById(roomId);
         return DTOConverter.roomToRoomDetailDTO(room);

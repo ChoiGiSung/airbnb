@@ -5,6 +5,7 @@ import com.codesquad.coco.image.ImageDAO;
 import com.codesquad.coco.room.model.Room;
 import com.codesquad.coco.room.model.dto.SearchPriceDTO;
 import com.codesquad.coco.room.model.dto.SearchRoomDTO;
+import com.codesquad.coco.room.model.dto.SearchRoomLocationDTO;
 import com.codesquad.coco.user.model.Reservation;
 import com.codesquad.coco.utils.mapper.ReservationMapper;
 import com.codesquad.coco.utils.mapper.RoomMapper;
@@ -49,6 +50,26 @@ public class RoomDAO {
                 .addValue("price_min", roomDTO.getPriceMin())
                 .addValue("price_max", roomDTO.getPriceMax());
         List<Room> rooms = template.query(FIND_ALL_ROOM_BY_SEARCH_REQUIREMENT, parameter, new RoomMapper());
+        for (Room room : rooms) {
+            //todo n+1 을 만들것인가?
+            fillRoomWithImage(room);
+            fillRoomWithReservation(room);
+        }
+        return rooms;
+    }
+
+    public List<Room> findAllBySearchLocationRoomDTO(SearchRoomLocationDTO roomDTO) {
+        MapSqlParameterSource parameter = new MapSqlParameterSource()
+                .addValue("check_in", roomDTO.getCheckIn())
+                .addValue("check_out", roomDTO.getCheckOut())
+                .addValue("adult", roomDTO.getAdult())
+                .addValue("child", roomDTO.getChild())
+                .addValue("baby", roomDTO.getBaby())
+                .addValue("price_min", roomDTO.getPriceMin())
+                .addValue("price_max", roomDTO.getPriceMax())
+                .addValue("latitude", roomDTO.getLatitude())
+                .addValue("longitude", roomDTO.getLongitude());
+        List<Room> rooms = template.query(FIND_ALL_ROOM_BY_SEARCH_LOCATION_REQUIREMENT, parameter, new RoomMapper());
         for (Room room : rooms) {
             //todo n+1 을 만들것인가?
             fillRoomWithImage(room);

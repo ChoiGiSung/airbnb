@@ -33,6 +33,12 @@ public class RoomController {
         return new SearchRoomPreviewsDTO(roomPreviewDTOs);
     }
 
+    @GetMapping("/search/location")
+    public SearchRoomPreviewsDTO searchAllRoomByLocation(SearchRoomLocationDTO roomDTO) {
+        List<RoomPreviewDTO> roomPreviewDTOs = roomService.findAllRoomLocationPreviewDTO(roomDTO);
+        return new SearchRoomPreviewsDTO(roomPreviewDTOs);
+    }
+
     @GetMapping("/rooms/{roomId}")
     public RoomDetailDTO findRoomDetail(@PathVariable Long roomId) {
         return roomService.findRoomDetailDTO(roomId);
