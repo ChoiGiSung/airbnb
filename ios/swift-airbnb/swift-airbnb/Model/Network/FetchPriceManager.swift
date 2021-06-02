@@ -31,4 +31,17 @@ class FetchPriceManager {
     func getPrice() -> [Int] {
         return price.getPrices()
     }
+    
+    func getMaximumPrice() -> Int {
+        return price.getMaximumPrice()
+    }
+    
+    func getMinimumPrice() -> Int {
+        return price.getMinimumPrice()
+    }
+    
+    func getPriceAverage() -> Int {
+        return price.calculatorPriceAverage()
+    }
+    
 }

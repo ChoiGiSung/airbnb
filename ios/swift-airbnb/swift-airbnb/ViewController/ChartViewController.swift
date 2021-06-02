@@ -14,10 +14,15 @@ class ChartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "숙소 찾기"
+        configureNavigationItem()
         configureInformationView()
         fetchPriceData()
         NotificationCenter.default.addObserver(self, selector: #selector(configurePriceLabel), name: Notification.Name.fetchPrice, object: nil)
+    }
+    
+    func configureNavigationItem()  {
+        navigationItem.title = "숙소 찾기"
+        self.navigationItem.backButtonTitle = "뒤로"
     }
     
     
@@ -25,6 +30,9 @@ class ChartViewController: UIViewController {
         informationView.configureCheckInLabel(checkIn: information.getCheckIn())
         informationView.configureCheckOutLabel(checkOut: information.getCheckOut())
         informationView.configureLocationLabel(name: information.getName())
+        if informationView.checkInLabel.text != "" && informationView.checkOutLabel.text != ""  {
+            informationView.configureDayHyphenLabel()
+        }
     }
     
     func fetchPriceData() {
@@ -33,8 +41,12 @@ class ChartViewController: UIViewController {
 
 
     @objc func configurePriceLabel() {
-        let priceArr = fetchPriceManager.getPrice().sorted()
-        minimumPriceLabel.text = String(priceArr[0])
-        maximumPriceLabel.text = String(priceArr[priceArr.count - 1])
+        minimumPriceLabel.text = "₩\(String(fetchPriceManager.getMinimumPrice().withComma))"
+        maximumPriceLabel.text = "₩\(String(fetchPriceManager.getMaximumPrice().withComma))"
+        informationView.minimumPriceLabel.text = "₩\(String(fetchPriceManager.getMinimumPrice().withComma))"
+        informationView.maximumPriceLabel.text = "₩\(String(fetchPriceManager.getMaximumPrice().withComma))"
+        informationView.priceHyphenLabel.text = "~"
+        priceAverageLabel.text = "평균 1박 요금은 ₩\(String(fetchPriceManager.getPriceAverage().withComma))입니다."
     }
 }
+

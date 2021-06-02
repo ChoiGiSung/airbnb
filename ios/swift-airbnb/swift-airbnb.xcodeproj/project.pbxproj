@@ -17,6 +17,7 @@
 		BD7C601D265F64F70092FB80 /* FetchCityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7C601C265F64F70092FB80 /* FetchCityManager.swift */; };
 		BD7C6022265F9B030092FB80 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7C6021265F9B030092FB80 /* NotificationName.swift */; };
 		BDBA7B7C2663640E00550733 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBA7B7B2663640E00550733 /* ChartViewController.swift */; };
+		BDCBA2CD266745850050DE41 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCBA2CC266745850050DE41 /* Extension.swift */; };
 		BDCCB7252654FA23006FD4F5 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCCB7242654FA23006FD4F5 /* SearchViewController.swift */; };
 		BDCED2BB2664FCFF0087DD08 /* Information.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCED2BA2664FCFF0087DD08 /* Information.swift */; };
 		BDCED2BD266525E10087DD08 /* FetchPriceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCED2BC266525E10087DD08 /* FetchPriceManager.swift */; };
@@ -70,6 +71,7 @@
 		BD7C601C265F64F70092FB80 /* FetchCityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCityManager.swift; sourceTree = "<group>"; };
 		BD7C6021265F9B030092FB80 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		BDBA7B7B2663640E00550733 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
+		BDCBA2CC266745850050DE41 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		BDCCB7242654FA23006FD4F5 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		BDCED2BA2664FCFF0087DD08 /* Information.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Information.swift; sourceTree = "<group>"; };
 		BDCED2BC266525E10087DD08 /* FetchPriceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPriceManager.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				BDCED2BE2665292C0087DD08 /* Entity */,
 				BDFD8B38265284ED006CA75A /* Network */,
 				BD7C6021265F9B030092FB80 /* NotificationName.swift */,
+				BDCBA2CC266745850050DE41 /* Extension.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -589,6 +592,7 @@
 				BD01444F265BE5910047246C /* CalendarViewController.swift in Sources */,
 				BDCED2C0266529420087DD08 /* Price.swift in Sources */,
 				BDCED2BB2664FCFF0087DD08 /* Information.swift in Sources */,
+				BDCBA2CD266745850050DE41 /* Extension.swift in Sources */,
 				BDFD8B4A2653AD36006CA75A /* TravelCollectionViewDataSource.swift in Sources */,
 				BDFD8B4C2653AE1E006CA75A /* RecommendTravelCollectionViewDataSource.swift in Sources */,
 				BD7C601B265F64E10092FB80 /* EndPoint.swift in Sources */,

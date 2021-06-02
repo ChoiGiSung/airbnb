@@ -48,10 +48,10 @@ class InformationView: UIView {
     }
     
     func configureDayHyphenLabel() {
-        self.dayHyphenLabel.text = "-"
+        self.dayHyphenLabel.text = "~"
     }
     
     func configurePriceHyphenLabel() {
-        self.dayHyphenLabel.text = "-"
+        self.dayHyphenLabel.text = "~"
     }
 }
