@@ -16,7 +16,6 @@ class FetchPriceManager {
     
     func fetchData(checkIn: String, checkOut: String, city: String) {
         guard let url = endPoint.searchPriceURL(checkIn: checkIn, checkOut: checkOut, city: city) else { return }
-        print(url.absoluteString)
         network.reequest(url: url, completionHandler: { (result: Result<PriceDTO, Error>) in
             switch result {
             case .success(let data):
