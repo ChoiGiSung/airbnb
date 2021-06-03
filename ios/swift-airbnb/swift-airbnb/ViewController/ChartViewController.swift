@@ -13,9 +13,10 @@ class ChartViewController: UIViewController {
     private let information = Information.shared
     private var fetchPriceManager = FetchPriceManager()
     
-    @IBOutlet weak var rangeSlider1: RangeSlider!
+    @IBOutlet weak var rangeSlider: RangeSlider!
     
-    @IBOutlet weak var rangeSlider2: RangeSlider!
+    private var minPrice = 0
+    private var maxPrice = 0
     
     
     override func viewDidLoad() {
@@ -24,29 +25,6 @@ class ChartViewController: UIViewController {
         configureInformationView()
         fetchPriceData()
         NotificationCenter.default.addObserver(self, selector: #selector(configurePriceLabel), name: Notification.Name.fetchPrice, object: nil)
-        
-        rangeSlider1.setValueChangedCallback { (minValue, maxValue) in
-            print("rangeSlider1 min value:\(minValue)")
-            print("rangeSlider1 max value:\(maxValue)")
-        }
-        rangeSlider1.setMinValueDisplayTextGetter { (minValue) -> String? in
-            return "$\(minValue)"
-        }
-        rangeSlider1.setMaxValueDisplayTextGetter { (maxValue) -> String? in
-            return "$\(maxValue)"
-        }
-        rangeSlider1.setMinAndMaxRange(0, maxRange: 1000)
-
-//        rangeSlider2.setValueChangedCallback { (minValue, maxValue) in
-//            print("rangeSlider2 min value:\(minValue)")
-//            print("rangeSlider2 max value:\(maxValue)")
-//        }
-//        rangeSlider2.setMinValueDisplayTextGetter { (minValue) -> String? in
-//            return "¥\(minValue)"
-//        }
-//        rangeSlider2.setMaxValueDisplayTextGetter { (maxValue) -> String? in
-//            return "¥\(maxValue)"
-//        }
     }
     
     func configureNavigationItem()  {
@@ -54,7 +32,34 @@ class ChartViewController: UIViewController {
         self.navigationItem.backButtonTitle = "뒤로"
     }
     
-   
+    func convertPrice(minimumPrice: Int, maximumPrice: Int) -> [Int] {
+        var resultMinPrice = [String]()
+        var resultMaxPrice = [String]()
+        let minPriceArr = String(minimumPrice).map{String($0)}
+        let maxPriceArr = String(maximumPrice).map{String($0)}
+        for i in 0..<minPriceArr.count - 3 {
+            resultMinPrice.append(minPriceArr[i])
+        }
+        for i in 0..<maxPriceArr.count - 3 {
+            resultMaxPrice.append(maxPriceArr[i])
+        }
+        
+        return [Int(resultMinPrice.joined())!, Int(resultMaxPrice.joined())!]
+    }
+    
+    func configureRangeSlider(minimumPrice: Int, maximumPrice: Int)  {
+        let prices = convertPrice(minimumPrice: minimumPrice, maximumPrice: maximumPrice)
+        rangeSlider.setRangeValues(Array(prices[0]...prices[1]))
+        rangeSlider.setMinAndMaxRange(prices[0], maxRange: prices[1])
+        rangeSlider.setMinAndMaxValue(prices[0], maxValue: prices[1])
+        rangeSlider.setValueChangedCallback { (minValue, maxValue) in
+            self.informationView.minimumPriceLabel.text = "₩\((minValue * 1000).withComma)"
+            self.minPrice = minValue * 1000
+            self.informationView.priceHyphenLabel.text = "~"
+            self.informationView.maximumPriceLabel.text = "₩\((maxValue * 1000).withComma)"
+            self.maxPrice = maxValue * 1000
+        }
+    }
     
     
     func configureInformationView() {
@@ -78,12 +83,13 @@ class ChartViewController: UIViewController {
         informationView.maximumPriceLabel.text = "₩\(String(fetchPriceManager.getMaximumPrice().withComma))"
         informationView.priceHyphenLabel.text = "~"
         priceAverageLabel.text = "평균 1박 요금은 ₩\(String(fetchPriceManager.getPriceAverage().withComma))입니다."
+        configureRangeSlider(minimumPrice: fetchPriceManager.getMinimumPrice(), maximumPrice: fetchPriceManager.getMaximumPrice())
     }
     
-    @IBAction func ButtonAction(_ sender: Any){
+    @IBAction func pressedNextButton(_ sender: Any){
         guard let selectNumberViewController = self.storyboard?.instantiateViewController(identifier: "selectNumberViewController") as? SelectNumberViewController else { return }
         self.navigationController?.pushViewController(selectNumberViewController, animated: true)
-//        information.setMinimumPriceAndMaximumPrice(minimumPrice: <#T##String#>, maximumPrice: <#T##String#>)
+        information.setMinimumPriceAndMaximumPrice(minimumPrice: String(minPrice), maximumPrice: String(maxPrice))
     }
 }
 

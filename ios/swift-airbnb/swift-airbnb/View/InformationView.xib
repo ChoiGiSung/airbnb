@@ -16,7 +16,7 @@
                 <outlet property="locationLabel" destination="Pf0-8g-iff" id="aLd-oO-FVg"/>
                 <outlet property="maximumPriceLabel" destination="Acs-uV-yAi" id="56x-xr-iRP"/>
                 <outlet property="minimumPriceLabel" destination="miZ-u0-AcJ" id="BEq-SQ-ZBI"/>
-                <outlet property="personnelLabel" destination="NC6-bK-ZMW" id="mpC-AU-u0P"/>
+                <outlet property="numberOfPeopleLabel" destination="NC6-bK-ZMW" id="mpC-AU-u0P"/>
                 <outlet property="priceHyphenLabel" destination="g8F-NR-ug1" id="XUI-7J-cpZ"/>
             </connections>
         </placeholder>

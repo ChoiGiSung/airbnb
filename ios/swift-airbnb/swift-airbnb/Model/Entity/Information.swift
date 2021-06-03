@@ -41,7 +41,7 @@ class Information {
         case "Jeju-do":
             self.name = "제주"
         default:
-            break
+            self.name = name
         }
     }
     
@@ -60,6 +60,14 @@ class Information {
     
     func getCheckOut() -> String {
         return self.checkOut
+    }
+    
+    func getMinimumPrice() -> Int {
+        return Int(self.minimumPrice)!
+    }
+    
+    func getMaximumPrice() -> Int {
+        return Int(self.maximumPrice)!
     }
     
     func setMinimumPriceAndMaximumPrice(minimumPrice: String, maximumPrice: String) {

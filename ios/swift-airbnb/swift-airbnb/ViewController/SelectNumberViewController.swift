@@ -24,6 +24,22 @@ class SelectNumberViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setMinusButtonState()
+        configureInformationView()
+        
+    }
+    
+    func configureInformationView()  {
+        informationView.configureLocationLabel(name: information.getName())
+        informationView.configureCheckInLabel(checkIn: information.getCheckIn())
+        informationView.configureDayHyphenLabel()
+        informationView.configureCheckOutLabel(checkOut: information.getCheckOut())
+        informationView.configureMinimumPriceLabel(price: "₩\(information.getMinimumPrice().withComma)")
+        informationView.configurePriceHyphenLabel()
+        informationView.configureMaximumPriceLabel(price: "₩\(information.getMaximumPrice().withComma)")
+    }
+    
+    func setMinusButtonState() {
         adultMinusButton.isEnabled = false
         childrenMinusButton.isEnabled = false
         infantsMinusButton.isEnabled = false
@@ -39,6 +55,7 @@ class SelectNumberViewController: UIViewController {
         numberOfAdult += 1
         adultNumberLabel.text = "\(numberOfAdult)"
         adultMinusButton.isEnabled = true
+        informationView.configureNumberOfPeopleLabel(number: calculatorNumber())
     }
     
     @IBAction func pressedAdultMinusButton(_ sender: Any){
@@ -50,12 +67,14 @@ class SelectNumberViewController: UIViewController {
             numberOfAdult = 0
         }
         adultNumberLabel.text = "\(numberOfAdult)"
+        informationView.configureNumberOfPeopleLabel(number: calculatorNumber())
     }
     
     @IBAction func pressedChildrenPlusButton(_ sender: Any){
         numberOfChildren += 1
         childrenNumberLabel.text = "\(numberOfChildren)"
         childrenMinusButton.isEnabled = true
+        informationView.configureNumberOfPeopleLabel(number: calculatorNumber())
     }
     
     @IBAction func pressedChildrenMinusButton(_ sender: Any){
@@ -67,12 +86,14 @@ class SelectNumberViewController: UIViewController {
             numberOfChildren = 0
         }
         childrenNumberLabel.text = "\(numberOfChildren)"
+        informationView.configureNumberOfPeopleLabel(number: calculatorNumber())
     }
     
     @IBAction func pressedInfantsPlusButton(_ sender: Any){
         numberOfInfants += 1
         infantsNumberLabel.text = "\(numberOfInfants)"
         infantsMinusButton.isEnabled = true
+        informationView.configureNumberOfPeopleLabel(number: calculatorNumber())
     }
     
     @IBAction func pressedInfantsMinusButton(_ sender: Any){
@@ -84,6 +105,7 @@ class SelectNumberViewController: UIViewController {
             numberOfInfants = 0
         }
         infantsNumberLabel.text = "\(numberOfInfants)"
+        informationView.configureNumberOfPeopleLabel(number: calculatorNumber())
     }
     
     //MARK: - 검색 버튼 액션

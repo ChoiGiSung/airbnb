@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dvS-0z-qwA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pJI-uO-dZH">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -403,7 +403,7 @@
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="ButtonAction:" destination="dvS-0z-qwA" eventType="touchUpInside" id="J8l-DL-OzO"/>
+                                            <action selector="pressedNextButton:" destination="dvS-0z-qwA" eventType="touchUpInside" id="TkK-xP-Bkd"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -451,7 +451,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v3C-Vd-igV" customClass="RangeSlider" customModule="ZMSwiftRangeSlider">
-                                        <rect key="frame" x="16" y="244" width="382" height="128"/>
+                                        <rect key="frame" x="16" y="314" width="382" height="128"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                 </subviews>
@@ -463,13 +463,13 @@
                                     <constraint firstItem="Puh-xV-k9g" firstAttribute="leading" secondItem="hsT-5t-caj" secondAttribute="leading" constant="16" id="DGw-OZ-fq8"/>
                                     <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="RuO-FB-JMA" secondAttribute="trailing" constant="225" id="FYP-p8-DYf"/>
                                     <constraint firstItem="48L-eQ-E1R" firstAttribute="top" secondItem="Puh-xV-k9g" secondAttribute="bottom" constant="16" id="H7w-TS-6nm"/>
-                                    <constraint firstAttribute="bottom" secondItem="v3C-Vd-igV" secondAttribute="bottom" constant="217" id="HBF-1Z-iVr"/>
                                     <constraint firstItem="Puh-xV-k9g" firstAttribute="top" secondItem="hsT-5t-caj" secondAttribute="top" constant="32" id="IdD-fN-pTh"/>
+                                    <constraint firstAttribute="bottom" secondItem="v3C-Vd-igV" secondAttribute="bottom" constant="147" id="Nxy-14-Duj"/>
                                     <constraint firstItem="KzA-AX-XHg" firstAttribute="top" secondItem="hsT-5t-caj" secondAttribute="top" constant="69" id="W9P-ak-qgd"/>
                                     <constraint firstItem="v3C-Vd-igV" firstAttribute="leading" secondItem="hsT-5t-caj" secondAttribute="leading" constant="16" id="XJI-V2-gfT"/>
                                     <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Puh-xV-k9g" secondAttribute="trailing" constant="335" id="XrB-TY-gUF"/>
                                     <constraint firstItem="tZO-UO-11a" firstAttribute="leading" secondItem="hsT-5t-caj" secondAttribute="leading" constant="16" id="Yvk-Bi-OvJ"/>
-                                    <constraint firstItem="v3C-Vd-igV" firstAttribute="top" secondItem="RuO-FB-JMA" secondAttribute="bottom" constant="130" id="cdy-PR-XXP"/>
+                                    <constraint firstItem="v3C-Vd-igV" firstAttribute="top" secondItem="RuO-FB-JMA" secondAttribute="bottom" constant="200" id="cdy-PR-XXP"/>
                                     <constraint firstItem="tZO-UO-11a" firstAttribute="top" secondItem="Puh-xV-k9g" secondAttribute="bottom" constant="16" id="rrl-PM-amG"/>
                                     <constraint firstItem="RuO-FB-JMA" firstAttribute="leading" secondItem="hsT-5t-caj" secondAttribute="leading" constant="16" id="sqn-hg-fey"/>
                                     <constraint firstAttribute="trailing" secondItem="v3C-Vd-igV" secondAttribute="trailing" constant="16" id="uPm-A6-vRw"/>
@@ -498,7 +498,7 @@
                         <outlet property="minimumPriceLabel" destination="tZO-UO-11a" id="aSS-N3-xQM"/>
                         <outlet property="nextButton" destination="dbi-5q-Mj0" id="XYq-aQ-O9D"/>
                         <outlet property="priceAverageLabel" destination="RuO-FB-JMA" id="vz0-dL-gh7"/>
-                        <outlet property="rangeSlider1" destination="v3C-Vd-igV" id="2QZ-lj-iq2"/>
+                        <outlet property="rangeSlider" destination="v3C-Vd-igV" id="2QZ-lj-iq2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HZy-fz-L4k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

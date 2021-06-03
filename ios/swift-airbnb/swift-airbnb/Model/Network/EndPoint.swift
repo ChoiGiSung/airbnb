@@ -30,4 +30,8 @@ struct EndPoint {
         return componenets.url
     }
     
+    func searchRoomURL() -> <#return type#> {
+        <#function body#>
+    }
+    
 }

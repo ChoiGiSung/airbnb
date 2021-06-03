@@ -10,7 +10,7 @@ class InformationView: UIView {
     @IBOutlet weak var minimumPriceLabel: UILabel!
     @IBOutlet weak var maximumPriceLabel: UILabel!
     @IBOutlet weak var priceHyphenLabel: UILabel!
-    @IBOutlet weak var personnelLabel: UILabel!
+    @IBOutlet weak var numberOfPeopleLabel: UILabel!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -56,6 +56,18 @@ class InformationView: UIView {
     }
     
     func configurePriceHyphenLabel() {
-        self.dayHyphenLabel.text = "~"
+        self.priceHyphenLabel.text = "~"
+    }
+    
+    func configureMinimumPriceLabel(price: String)  {
+        self.minimumPriceLabel.text = price
+    }
+    
+    func configureMaximumPriceLabel(price: String)  {
+        self.maximumPriceLabel.text = price
+    }
+    
+    func configureNumberOfPeopleLabel(number: String)  {
+        self.numberOfPeopleLabel.text = "\(number) 명"
     }
 }
