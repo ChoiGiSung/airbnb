@@ -12,6 +12,10 @@ public class ErrorReason {
         return new ErrorReason(code.getMessage());
     }
 
+    public static ErrorReason of(String message) {
+        return new ErrorReason(message);
+    }
+
     public String getMessage() {
         return message;
     }

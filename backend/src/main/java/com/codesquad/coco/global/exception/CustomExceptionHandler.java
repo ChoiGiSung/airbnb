@@ -12,7 +12,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.client.RestClientResponseException;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 @RestControllerAdvice
@@ -81,13 +81,13 @@ public class CustomExceptionHandler {
     /**
      * RestTemplate  예외
      **/
-    @ExceptionHandler(HttpClientErrorException.class)
-    protected ResponseEntity<ErrorReason> RestTemplateException(HttpClientErrorException e) {
+    @ExceptionHandler(RestClientResponseException.class)
+    protected ResponseEntity<ErrorReason> RestTemplateException(RestClientResponseException e) {
         logger.error("RestTemplate 에러", e);
-        ErrorReason errorReason = ErrorReason.of(ErrorCode.MAYBE_REST_TEMPLATE);
-        return new ResponseEntity<>(errorReason, HttpStatus.BAD_REQUEST);
+        ErrorReason errorReason = ErrorReason.of(e.getMessage());
+        HttpStatus resolve = HttpStatus.resolve(e.getRawStatusCode());
+        return new ResponseEntity<>(errorReason, resolve);
     }
-
 
     /**
      * 기타 예외
