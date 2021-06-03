@@ -111,6 +111,8 @@ class SelectNumberViewController: UIViewController {
     //MARK: - 검색 버튼 액션
     @IBAction func pressedSearchButton(_ sender: Any){
         information.setNumberOfPeople(number: calculatorNumber())
+        guard let roomsViewController = self.storyboard?.instantiateViewController(identifier: "roomsViewController") as? RoomsViewController else { return }
+        self.navigationController?.pushViewController(roomsViewController, animated: true)
     }
  
 }

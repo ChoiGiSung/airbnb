@@ -2,11 +2,11 @@
 
 import Foundation
 
-class fetchRoomManager {
+class FetchRoomManager {
     
     private let network: NetworkManager
     private let endPoint: EndPoint
-    private var rooms: Rooms
+    private(set) var rooms: Rooms
     
     init() {
         self.network = NetworkManager()

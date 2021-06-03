@@ -21,4 +21,8 @@ class Rooms {
     func getRooms() -> [Room] {
         return self.rooms
     }
+    
+    func getRoomsCount() -> Int {
+        return self.rooms.count
+    }
 }

@@ -21,6 +21,9 @@
 		BDCBA2D32668AE360050DE41 /* FetchRoomManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCBA2D22668AE360050DE41 /* FetchRoomManager.swift */; };
 		BDCBA2D62668AFED0050DE41 /* Rooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCBA2D52668AFED0050DE41 /* Rooms.swift */; };
 		BDCBA2D82668B03F0050DE41 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCBA2D72668B03F0050DE41 /* Room.swift */; };
+		BDCBA2DA2668B9460050DE41 /* RoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCBA2D92668B9460050DE41 /* RoomsViewController.swift */; };
+		BDCBA2DD2668C1BB0050DE41 /* RoomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCBA2DB2668C1BB0050DE41 /* RoomCollectionViewCell.swift */; };
+		BDCBA2DE2668C1BB0050DE41 /* RoomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDCBA2DC2668C1BB0050DE41 /* RoomCollectionViewCell.xib */; };
 		BDCCB7252654FA23006FD4F5 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCCB7242654FA23006FD4F5 /* SearchViewController.swift */; };
 		BDCED2BB2664FCFF0087DD08 /* Information.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCED2BA2664FCFF0087DD08 /* Information.swift */; };
 		BDCED2BD266525E10087DD08 /* FetchPriceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCED2BC266525E10087DD08 /* FetchPriceManager.swift */; };
@@ -83,6 +86,9 @@
 		BDCBA2D22668AE360050DE41 /* FetchRoomManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRoomManager.swift; sourceTree = "<group>"; };
 		BDCBA2D52668AFED0050DE41 /* Rooms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rooms.swift; sourceTree = "<group>"; };
 		BDCBA2D72668B03F0050DE41 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		BDCBA2D92668B9460050DE41 /* RoomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewController.swift; sourceTree = "<group>"; };
+		BDCBA2DB2668C1BB0050DE41 /* RoomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCollectionViewCell.swift; sourceTree = "<group>"; };
+		BDCBA2DC2668C1BB0050DE41 /* RoomCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoomCollectionViewCell.xib; sourceTree = "<group>"; };
 		BDCCB7242654FA23006FD4F5 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		BDCED2BA2664FCFF0087DD08 /* Information.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Information.swift; sourceTree = "<group>"; };
 		BDCED2BC266525E10087DD08 /* FetchPriceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPriceManager.swift; sourceTree = "<group>"; };
@@ -173,6 +179,7 @@
 				BD01444E265BE5910047246C /* CalendarViewController.swift */,
 				BDBA7B7B2663640E00550733 /* ChartViewController.swift */,
 				BDCBA2CE26674D000050DE41 /* SelectNumberViewController.swift */,
+				BDCBA2D92668B9460050DE41 /* RoomsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -283,6 +290,8 @@
 				BDFD8B4E2653D01D006CA75A /* RecommendTravelCollectionViewCell.xib */,
 				BD202923265CA1C20078DE4B /* InformationView.swift */,
 				BD202925265CA1E50078DE4B /* InformationView.xib */,
+				BDCBA2DB2668C1BB0050DE41 /* RoomCollectionViewCell.swift */,
+				BDCBA2DC2668C1BB0050DE41 /* RoomCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -428,6 +437,7 @@
 				BDFD8B4326539A8C006CA75A /* TravelCollectionViewCell.xib in Resources */,
 				BDFD8B0B26527A04006CA75A /* Main.storyboard in Resources */,
 				BDFD8B502653D01D006CA75A /* RecommendTravelCollectionViewCell.xib in Resources */,
+				BDCBA2DE2668C1BB0050DE41 /* RoomCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -591,6 +601,7 @@
 			files = (
 				BDCCB7252654FA23006FD4F5 /* SearchViewController.swift in Sources */,
 				BDFD8B4226539A8C006CA75A /* TravelCollectionViewCell.swift in Sources */,
+				BDCBA2DA2668B9460050DE41 /* RoomsViewController.swift in Sources */,
 				BDCBA2D82668B03F0050DE41 /* Room.swift in Sources */,
 				BDCED2BD266525E10087DD08 /* FetchPriceManager.swift in Sources */,
 				BD7C6022265F9B030092FB80 /* NotificationName.swift in Sources */,
@@ -603,6 +614,7 @@
 				BDFD8B0626527A04006CA75A /* SceneDelegate.swift in Sources */,
 				BDCBA2D32668AE360050DE41 /* FetchRoomManager.swift in Sources */,
 				BDCBA2D62668AFED0050DE41 /* Rooms.swift in Sources */,
+				BDCBA2DD2668C1BB0050DE41 /* RoomCollectionViewCell.swift in Sources */,
 				BD202924265CA1C20078DE4B /* InformationView.swift in Sources */,
 				BDFD8B3E26528779006CA75A /* DTO.swift in Sources */,
 				BD01444F265BE5910047246C /* CalendarViewController.swift in Sources */,

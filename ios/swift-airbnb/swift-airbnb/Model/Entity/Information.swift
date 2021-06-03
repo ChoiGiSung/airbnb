@@ -70,6 +70,10 @@ class Information {
         return Int(self.maximumPrice)!
     }
     
+    func getNumberOfPeople() -> String {
+        return self.numberOfPeople
+    }
+    
     func setMinimumPriceAndMaximumPrice(minimumPrice: String, maximumPrice: String) {
         self.minimumPrice = minimumPrice
         self.maximumPrice = maximumPrice

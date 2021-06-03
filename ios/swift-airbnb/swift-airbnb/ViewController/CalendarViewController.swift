@@ -71,8 +71,6 @@ class CalendarViewController: UIViewController {
         guard let chartViewController = self.storyboard?.instantiateViewController(identifier: "chartViewController") as? ChartViewController else { return }
         self.navigationController?.pushViewController(chartViewController, animated: true)
         information.setCheckInAndCheckOut(checkIn: formatter.string(from: selectedDayArray[0]), checkOut: formatter.string(from: selectedDayArray[selectedDayArray.count - 1]))
-        
-        // 네트워크 처리를 통한 가격 불러오기
     }
 }
 
