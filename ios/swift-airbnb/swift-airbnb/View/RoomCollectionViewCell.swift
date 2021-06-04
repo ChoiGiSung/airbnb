@@ -27,7 +27,7 @@ class RoomCollectionViewCell: UICollectionViewCell {
         self.commentLabel.text = "(후기 \(rooms.getRooms()[indexPath.row].getComment())개)"
         self.nameLabel.text = rooms.getRooms()[indexPath.row].getName()
         self.pricePerDateLabel.text = "₩\(rooms.getRooms()[indexPath.row].getPricePerDate())"
-        self.totalPriceLabel.text = "총액 \(rooms.getRooms()[indexPath.row].getTotalPrice())"
+        self.totalPriceLabel.text = "총액 ₩\(rooms.getRooms()[indexPath.row].getTotalPrice())"
     }
     
 }
