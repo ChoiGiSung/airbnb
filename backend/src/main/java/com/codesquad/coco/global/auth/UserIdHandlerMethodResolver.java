@@ -3,13 +3,11 @@ package com.codesquad.coco.global.auth;
 import com.codesquad.coco.oauth.ServerKey;
 import jwt.JWTUtils;
 import org.springframework.core.MethodParameter;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.support.WebDataBinderFactory;
 import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.ModelAndViewContainer;
 
-@Component
 public class UserIdHandlerMethodResolver implements HandlerMethodArgumentResolver {
 
     private static final String WANT_INFO = "id";

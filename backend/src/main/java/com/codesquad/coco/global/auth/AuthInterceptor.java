@@ -4,7 +4,6 @@ import com.codesquad.coco.global.exception.auth.NotLoggedInException;
 import com.codesquad.coco.oauth.ServerKey;
 import jwt.JWTUtils;
 import org.springframework.http.HttpMethod;
-import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -13,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Objects;
 
-@Component
 public class AuthInterceptor implements HandlerInterceptor {
 
     private ServerKey serverKey;

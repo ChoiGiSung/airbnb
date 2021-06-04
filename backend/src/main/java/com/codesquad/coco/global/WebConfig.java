@@ -3,6 +3,9 @@ package com.codesquad.coco.global;
 import com.codesquad.coco.global.auth.AuthInterceptor;
 import com.codesquad.coco.global.auth.GitHubDeviceTypeConvertor;
 import com.codesquad.coco.global.auth.UserIdHandlerMethodResolver;
+import com.codesquad.coco.oauth.ServerKey;
+import com.codesquad.coco.utils.GetPropertyUtil;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
@@ -16,23 +19,21 @@ import java.util.List;
 public class WebConfig implements WebMvcConfigurer {
 
     private static final String JWT_PATH = "jwt.server.key";
-    private AuthInterceptor authInterceptor;
-    private UserIdHandlerMethodResolver userIdHandlerMethodResolver;
 
-    public WebConfig(AuthInterceptor authInterceptor, UserIdHandlerMethodResolver userIdHandlerMethodResolver) {
-        this.authInterceptor = authInterceptor;
-        this.userIdHandlerMethodResolver = userIdHandlerMethodResolver;
+    @Bean
+    public ServerKey serverKey() {
+        return new ServerKey(GetPropertyUtil.getProperty(JWT_PATH));
     }
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(authInterceptor)
+        registry.addInterceptor(new AuthInterceptor(serverKey()))
                 .addPathPatterns("/rooms/**");
     }
 
     @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
-        resolvers.add(userIdHandlerMethodResolver);
+        resolvers.add(new UserIdHandlerMethodResolver(serverKey()));
     }
 
     @Override
