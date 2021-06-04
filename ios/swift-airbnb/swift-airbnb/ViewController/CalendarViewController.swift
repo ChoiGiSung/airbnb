@@ -54,7 +54,7 @@ class CalendarViewController: UIViewController {
     func convertDateToString() -> [String] {
         if calendarView.selectedDates.count >= 2 {
             informationView.configureDayHyphenLabel()
-            return [formatter.string(from: calendarView.selectedDates[0]), formatter.string(from: calendarView.selectedDates[calendarView.selectedDates.count - 1])]
+            return [formatter.string(from: calendarView.selectedDates.min()!), formatter.string(from: calendarView.selectedDates.max()!)]
         } else if calendarView.selectedDates.count  == 1 {
             informationView.removeDayHyphenLabel()
             return [formatter.string(from: calendarView.selectedDates[0]), ""]
@@ -68,7 +68,7 @@ class CalendarViewController: UIViewController {
         informationView.locationLabel.text = information.getName()
     }
     
-    @IBAction func ButtonAction(_ sender: Any){
+    @IBAction func pressedNextButton(_ sender: Any){
         guard let chartViewController = self.storyboard?.instantiateViewController(identifier: "chartViewController") as? ChartViewController else { return }
         self.navigationController?.pushViewController(chartViewController, animated: true)
         information.setCheckInAndCheckOut(checkIn: formatter.string(from:  calendarView.selectedDates[0]), checkOut: formatter.string(from: calendarView.selectedDates[calendarView.selectedDates.count - 1]))
@@ -81,9 +81,11 @@ class CalendarViewController: UIViewController {
     func changeNextButton(check: Bool)  {
         if check == true {
             self.nextButton.isEnabled = false
+            self.skipButton.setTitle("건너띄기", for: .normal)
             self.nextButton.setTitleColor(.systemGray2, for: .normal)
         } else {
             self.nextButton.isEnabled = true
+            self.skipButton.setTitle("지우기", for: .normal)
             self.nextButton.setTitleColor(.black, for: .normal)
         }
     }
@@ -103,7 +105,7 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
         if calendar.selectedDates.count == 2{
             if calendar.selectedDates[0] < calendar.selectedDates[1]{
                 startTemp = calendar.selectedDates[0]
-                while startTemp < calendar.selectedDates[1]-86400{
+                while startTemp < calendar.selectedDates[1] - 86400{
                     startTemp += 86400
                     calendar.select(startTemp)
                 }
@@ -117,8 +119,6 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
                 }
             }
         }
-
-
         changeNextButton(check: checkSelectedDayArrayCount())
         informationView.configureCheckLabel(days: convertDateToString())
     }
@@ -128,7 +128,6 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
             calendar.deselect(calendar.selectedDates[0])
         }
         calendar.select(date)
-        
         changeNextButton(check: checkSelectedDayArrayCount())
         informationView.configureCheckLabel(days: convertDateToString())
     }

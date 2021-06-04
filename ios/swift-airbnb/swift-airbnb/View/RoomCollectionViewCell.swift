@@ -22,7 +22,7 @@ class RoomCollectionViewCell: UICollectionViewCell {
         guard let url = URL(string: rooms.getRooms()[indexPath.row].getThumbnailImage()) else { return }
         self.thumbnailImageView.kf.setImage(with: url)
         self.thumbnailImageView.layer.masksToBounds = true
-        self.thumbnailImageView.layer.cornerRadius = 15
+        self.thumbnailImageView.layer.cornerRadius = 10
         self.starLabel.text = rooms.getRooms()[indexPath.row].getStar()
         self.commentLabel.text = "(후기 \(rooms.getRooms()[indexPath.row].getComment())개)"
         self.nameLabel.text = rooms.getRooms()[indexPath.row].getName()

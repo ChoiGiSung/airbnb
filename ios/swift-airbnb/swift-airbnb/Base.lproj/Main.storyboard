@@ -330,7 +330,7 @@
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="ButtonAction:" destination="in7-78-36z" eventType="touchUpInside" id="qQq-u3-5Q7"/>
+                                            <action selector="pressedNextButton:" destination="in7-78-36z" eventType="touchUpInside" id="qQq-u3-5Q7"/>
                                         </connections>
                                     </button>
                                 </subviews>

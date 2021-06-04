@@ -90,5 +90,6 @@ class ChartViewController: UIViewController {
         self.navigationController?.pushViewController(selectNumberViewController, animated: true)
         information.setMinimumPriceAndMaximumPrice(minimumPrice: String(minPrice), maximumPrice: String(maxPrice))
     }
+
 }
 
