@@ -1,10 +1,14 @@
 PODS:
+  - Charts (3.6.0):
+    - Charts/Core (= 3.6.0)
+  - Charts/Core (3.6.0)
   - FSCalendar (2.8.2)
   - GooglePlaces (5.0.0)
   - Kingfisher (6.3.0)
   - ZMSwiftRangeSlider (0.1.9)
 
 DEPENDENCIES:
+  - Charts
   - FSCalendar
   - GooglePlaces (= 5.0.0)
   - Kingfisher (~> 6.0)
@@ -12,17 +16,19 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Charts
     - FSCalendar
     - GooglePlaces
     - Kingfisher
     - ZMSwiftRangeSlider
 
 SPEC CHECKSUMS:
+  Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
   FSCalendar: e6a2eb9c571bf0719ed797ef807e08426753c241
   GooglePlaces: 5d87ca13ed98b7a937e0d8bc7026f718c7263271
   Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
   ZMSwiftRangeSlider: 3641de7f91028b194579b95c85683c7227cc662e
 
-PODFILE CHECKSUM: 94f52e5b136bd492a50983b0fcd9371ccf89f3ab
+PODFILE CHECKSUM: 414b365ceaf62ac353bc4205e9962100bb835261
 
 COCOAPODS: 1.10.1

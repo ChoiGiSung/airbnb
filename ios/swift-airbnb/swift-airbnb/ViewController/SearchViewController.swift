@@ -67,6 +67,7 @@ extension SearchViewController: GMSAutocompleteResultsViewControllerDelegate {
         dismiss(animated: true, completion: nil)
         guard let calendarViewController = self.storyboard?.instantiateViewController(identifier: "calendarViewController") as? CalendarViewController else { return }
         guard let name = place.name else { return }
+        print(name)
         information.setName(name: name)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
             self.navigationController?.pushViewController(calendarViewController, animated: true)

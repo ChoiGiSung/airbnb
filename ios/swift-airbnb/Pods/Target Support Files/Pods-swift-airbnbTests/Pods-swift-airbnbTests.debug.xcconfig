@@ -1,8 +1,8 @@
 CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/FSCalendar" "${PODS_CONFIGURATION_BUILD_DIR}/Kingfisher" "${PODS_CONFIGURATION_BUILD_DIR}/ZMSwiftRangeSlider" "${PODS_ROOT}/GooglePlaces/Frameworks"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Charts" "${PODS_CONFIGURATION_BUILD_DIR}/FSCalendar" "${PODS_CONFIGURATION_BUILD_DIR}/Kingfisher" "${PODS_CONFIGURATION_BUILD_DIR}/ZMSwiftRangeSlider" "${PODS_ROOT}/GooglePlaces/Frameworks"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/FSCalendar/FSCalendar.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Kingfisher/Kingfisher.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/ZMSwiftRangeSlider/ZMSwiftRangeSlider.framework/Headers"
-OTHER_LDFLAGS = $(inherited) -l"c++" -l"z" -framework "Accelerate" -framework "CFNetwork" -framework "CoreGraphics" -framework "CoreLocation" -framework "FSCalendar" -framework "Kingfisher" -framework "QuartzCore" -framework "UIKit" -framework "ZMSwiftRangeSlider" -weak_framework "Combine" -weak_framework "SwiftUI"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Charts/Charts.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/FSCalendar/FSCalendar.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Kingfisher/Kingfisher.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/ZMSwiftRangeSlider/ZMSwiftRangeSlider.framework/Headers"
+OTHER_LDFLAGS = $(inherited) -l"c++" -l"z" -framework "Accelerate" -framework "CFNetwork" -framework "Charts" -framework "CoreGraphics" -framework "CoreLocation" -framework "FSCalendar" -framework "Kingfisher" -framework "QuartzCore" -framework "UIKit" -framework "ZMSwiftRangeSlider" -weak_framework "Combine" -weak_framework "SwiftUI"
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
