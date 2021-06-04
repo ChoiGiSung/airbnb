@@ -53,15 +53,16 @@ struct CoordinateDTO: Decodable {
 }
 
 struct HomeDetailsDTO: Decodable {
-    let maxGuest, bed, bathroom: Int
+    let bed, maxGuest, bathRoom: Int
 
     enum CodingKeys: String, CodingKey {
+        case bed
         case maxGuest = "max_guest"
-        case bed, bathroom
+        case bathRoom = "bath_room"
     }
 }
 
 struct ReviewDTO: Decodable {
     let star: Double
-    let comment: Int
+    let review: Int
 }

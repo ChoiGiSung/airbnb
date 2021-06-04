@@ -21,7 +21,6 @@ class TravelCollectionViewDataSource: NSObject,UICollectionViewDataSource {
         let city = fetchCityManager.cities.cities[indexPath.row]
         let time = cell.calculatorTime(name: fetchCityManager.cities.cities[indexPath.row].name)
         cell.configureTravelCell(name: city.name, image: city.imageURL, time: time)
-        
         return cell
     }
 }

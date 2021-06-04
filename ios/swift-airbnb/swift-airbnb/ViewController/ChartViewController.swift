@@ -15,9 +15,8 @@ class ChartViewController: UIViewController {
     
     @IBOutlet weak var rangeSlider: RangeSlider!
     
-    private var minPrice = 0
-    private var maxPrice = 0
-    
+    private lazy var minPrice = fetchPriceManager.getMinimumPrice()
+    private lazy var maxPrice = fetchPriceManager.getMaximumPrice()
     
     override func viewDidLoad() {
         super.viewDidLoad()

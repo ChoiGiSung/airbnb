@@ -11,6 +11,9 @@ class Information {
     private var minimumPrice: String
     private var maximumPrice: String
     private var numberOfPeople: String
+    private var numberOfAdult: String
+    private var numberOfChildren: String
+    private var numberOfInfants: String
     
     init() {
         self.name = ""
@@ -19,6 +22,9 @@ class Information {
         self.minimumPrice = ""
         self.maximumPrice = ""
         self.numberOfPeople = ""
+        self.numberOfAdult = ""
+        self.numberOfChildren = ""
+        self.numberOfInfants = ""
 
     }
     
@@ -54,6 +60,18 @@ class Information {
         self.checkOut = checkOut
     }
     
+    func setAdult(adult: String)  {
+        self.numberOfAdult = adult
+    }
+    
+    func setChildren(children: String)  {
+        self.numberOfChildren = children
+    }
+    
+    func setInfants(infants: String)  {
+        self.numberOfInfants = infants
+    }
+    
     func getCheckIn() -> String {
         return self.checkIn
     }
@@ -72,6 +90,18 @@ class Information {
     
     func getNumberOfPeople() -> String {
         return self.numberOfPeople
+    }
+    
+    func getNumberOfAdult() -> String {
+        return self.numberOfAdult
+    }
+    
+    func getNumberOfChildren() -> String {
+        return self.numberOfChildren
+    }
+    
+    func getNumberOfInfants() -> String {
+        return self.numberOfInfants
     }
     
     func setMinimumPriceAndMaximumPrice(minimumPrice: String, maximumPrice: String) {

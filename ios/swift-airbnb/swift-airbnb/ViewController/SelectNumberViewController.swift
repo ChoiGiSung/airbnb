@@ -26,7 +26,12 @@ class SelectNumberViewController: UIViewController {
         super.viewDidLoad()
         setMinusButtonState()
         configureInformationView()
-        
+        configureNavigationItem()
+    }
+    
+    func configureNavigationItem()  {
+        navigationItem.title = "숙소 찾기"
+        self.navigationItem.backButtonTitle = "뒤로"
     }
     
     func configureInformationView()  {
@@ -111,6 +116,9 @@ class SelectNumberViewController: UIViewController {
     //MARK: - 검색 버튼 액션
     @IBAction func pressedSearchButton(_ sender: Any){
         information.setNumberOfPeople(number: calculatorNumber())
+        information.setAdult(adult: String(numberOfAdult))
+        information.setChildren(children: String(numberOfChildren))
+        information.setInfants(infants: String(numberOfInfants))
         guard let roomsViewController = self.storyboard?.instantiateViewController(identifier: "roomsViewController") as? RoomsViewController else { return }
         self.navigationController?.pushViewController(roomsViewController, animated: true)
     }

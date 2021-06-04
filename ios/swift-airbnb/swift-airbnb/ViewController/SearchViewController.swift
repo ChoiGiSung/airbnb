@@ -38,6 +38,7 @@ class SearchViewController: UIViewController {
         self.navigationItem.searchController = searchController
         self.navigationItem.searchController?.searchResultsUpdater = resultController
         self.navigationItem.title = "숙소 찾기"
+        self.navigationItem.backButtonTitle = "뒤로"
         self.navigationItem.hidesSearchBarWhenScrolling = false
     }
     
@@ -66,7 +67,6 @@ extension SearchViewController: GMSAutocompleteResultsViewControllerDelegate {
         dismiss(animated: true, completion: nil)
         guard let calendarViewController = self.storyboard?.instantiateViewController(identifier: "calendarViewController") as? CalendarViewController else { return }
         guard let name = place.name else { return }
-        print(name)
         information.setName(name: name)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
             self.navigationController?.pushViewController(calendarViewController, animated: true)

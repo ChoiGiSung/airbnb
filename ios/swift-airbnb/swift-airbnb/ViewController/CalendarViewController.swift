@@ -16,16 +16,24 @@ class CalendarViewController: UIViewController {
     }()
     
     private let information = Information.shared
-    private var selectedDayArray = [Date]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCalendar()
-        navigationItem.title = "숙소 찾기"
+        configureNavigationItem()
         configureDelegateAndDataSource()
         setLocationLabel()
+        configureButton()
     }
-
+    func configureNavigationItem()  {
+        navigationItem.title = "숙소 찾기"
+        self.navigationItem.backButtonTitle = "뒤로"
+    }
+    
+    func configureButton()  {
+        self.nextButton.setTitleColor(.systemGray2, for: .normal)
+        self.nextButton.isEnabled = false
+    }
     
     func configureCalendar() {
         calendarView.appearance.weekdayTextColor = UIColor.black
@@ -44,22 +52,15 @@ class CalendarViewController: UIViewController {
     
     //MARK: - InformationView Update Method
     func convertDateToString() -> [String] {
-        selectedDayArray.sort()
-        if selectedDayArray.count >= 2 {
+        if calendarView.selectedDates.count >= 2 {
             informationView.configureDayHyphenLabel()
-            return [formatter.string(from: selectedDayArray[0]), formatter.string(from: selectedDayArray[selectedDayArray.count - 1])]
-        } else if selectedDayArray.count  == 1 {
+            return [formatter.string(from: calendarView.selectedDates[0]), formatter.string(from: calendarView.selectedDates[calendarView.selectedDates.count - 1])]
+        } else if calendarView.selectedDates.count  == 1 {
             informationView.removeDayHyphenLabel()
-            return [formatter.string(from: selectedDayArray[0]), ""]
+            return [formatter.string(from: calendarView.selectedDates[0]), ""]
         } else {
             informationView.removeDayHyphenLabel()
             return ["", ""]
-        }
-    }
-    
-    func deleteSelectedDate(date: Date) {
-        if selectedDayArray.count > 0 {
-            selectedDayArray.remove(at: selectedDayArray.firstIndex(of: date) ?? 0)
         }
     }
     
@@ -70,19 +71,65 @@ class CalendarViewController: UIViewController {
     @IBAction func ButtonAction(_ sender: Any){
         guard let chartViewController = self.storyboard?.instantiateViewController(identifier: "chartViewController") as? ChartViewController else { return }
         self.navigationController?.pushViewController(chartViewController, animated: true)
-        information.setCheckInAndCheckOut(checkIn: formatter.string(from: selectedDayArray[0]), checkOut: formatter.string(from: selectedDayArray[selectedDayArray.count - 1]))
+        information.setCheckInAndCheckOut(checkIn: formatter.string(from:  calendarView.selectedDates[0]), checkOut: formatter.string(from: calendarView.selectedDates[calendarView.selectedDates.count - 1]))
     }
+    
+    func checkSelectedDayArrayCount() -> Bool {
+        return self.calendarView.selectedDates.isEmpty
+    }
+    
+    func changeNextButton(check: Bool)  {
+        if check == true {
+            self.nextButton.isEnabled = false
+            self.nextButton.setTitleColor(.systemGray2, for: .normal)
+        } else {
+            self.nextButton.isEnabled = true
+            self.nextButton.setTitleColor(.black, for: .normal)
+        }
+    }
+
 }
 
 extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        selectedDayArray.append(date)
+        if calendar.selectedDates.count > 2{
+            for _ in 0 ..< calendar.selectedDates.count - 1{
+                calendar.deselect(calendar.selectedDates[0])
+            }
+        }
+        
+        var startTemp: Date!
+        if calendar.selectedDates.count == 2{
+            if calendar.selectedDates[0] < calendar.selectedDates[1]{
+                startTemp = calendar.selectedDates[0]
+                while startTemp < calendar.selectedDates[1]-86400{
+                    startTemp += 86400
+                    calendar.select(startTemp)
+                }
+                startTemp = nil
+            }
+            else{
+                startTemp = calendar.selectedDates[1]
+                while startTemp < calendar.selectedDates[0] - 86400{
+                    startTemp += 86400
+                    calendar.select(startTemp)
+                }
+            }
+        }
+
+
+        changeNextButton(check: checkSelectedDayArrayCount())
         informationView.configureCheckLabel(days: convertDateToString())
     }
     
     func calendar(_ calendar: FSCalendar, didDeselect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        self.deleteSelectedDate(date: date)
+        for _ in 0 ..< calendar.selectedDates.count {
+            calendar.deselect(calendar.selectedDates[0])
+        }
+        calendar.select(date)
+        
+        changeNextButton(check: checkSelectedDayArrayCount())
         informationView.configureCheckLabel(days: convertDateToString())
     }
 }
