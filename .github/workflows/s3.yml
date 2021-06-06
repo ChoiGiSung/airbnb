@@ -53,5 +53,5 @@ jobs:
           aws-region: ap-northeast-2
           
       - name: Upload to S3
-        run: aws s3 cp --region ap-northeast-2 --acl private ./sample.zip s3://coco-baseball/
+        run: aws s3 cp --region ap-northeast-2 --acl private ./$GITHUB_SHA.zip s3://coco-baseball/
         working-directory: ./backend/build/libs
