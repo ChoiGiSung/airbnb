@@ -1,14 +1,10 @@
-# This is a basic workflow to help you get started with Actions
 
 name: s3
 
-# Controls when the action will run. 
 on:
-  # Triggers the workflow on push or pull request events but only for the team-15 branch
   push:
-    branches: [ backend-deploy ]
-  pull_request:
-    branches: [ backend-deploy ]
+    branches:
+      - backend-deploy 
 
 jobs:
   deploy:
@@ -39,7 +35,7 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build
         shell: bash
-        
+        working-directory: ./backend
         
 #         # Gradle을 활용해 배포한다.
 #       - name: Build with Gradle
