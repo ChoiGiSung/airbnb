@@ -40,7 +40,7 @@ jobs:
         
         # CodeDeploy를 사용하기 위해서는 S3를 거쳐야 한다. 따라서 압축된 파일을 만들어주고 이를 옮긴다.
       - name: Make zip file
-        run: zip -qq -r ./$GITHUB_SHA.zip .
+        run: zip ./$GITHUB_SHA.zip ./coco-0.0.1-SNAPSHOT.jar
         shell: bash
         working-directory: ./backend/build/libs
         
