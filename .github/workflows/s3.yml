@@ -37,30 +37,21 @@ jobs:
         shell: bash
         working-directory: ./backend
         
-#         # Gradle을 활용해 배포한다.
-#       - name: Build with Gradle
-#         run: |
-#           ./gradlew build -x test
-#         shell: bash
-#         working-directory: ./backend
+        
+        # CodeDeploy를 사용하기 위해서는 S3를 거쳐야 한다. 따라서 압축된 파일을 만들어주고 이를 옮긴다.
+      - name: Make zip file
+        run: zip -qq -r ./$GITHUB_SHA.zip .
+        shell: bash
         
         
-#         # 버전마다 이름을 다르게 하기 위해서 GITHUB_SHA라고 하는 해시이름을 활용하여 zip 파일을 만든다.
-#         # CodeDeploy를 사용하기 위해서는 S3를 거쳐야 한다. 따라서 압축된 파일을 만들어주고 이를 옮긴다.
-#       - name: Make zip file
-#         run: zip -qq -r ./sample.zip .
-#         shell: bash
-#         working-directory: ./backend/build/libs
-        
-        
-#         # 인증 절차
-#       - name: deploy
-#         uses: aws-actions/configure-aws-credentials@v1
-#         with:
-#           aws-access-key-id: ${{ secrets.AWS_accesskey }}
-#           aws-secret-access-key: ${{ secrets.AWS_secretkey }}
-#           aws-region: ap-northeast-2
+        # 인증 절차
+      - name: deploy
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_accesskey }}
+          aws-secret-access-key: ${{ secrets.AWS_secretkey }}
+          aws-region: ap-northeast-2
           
-#       - name: Upload to S3
-#         run: aws s3 cp --region ap-northeast-2 --acl private ./sample.zip s3://coco-baseball/
-#         working-directory: ./backend/build/libs
+      - name: Upload to S3
+        run: aws s3 cp --region ap-northeast-2 --acl private ./sample.zip s3://coco-baseball/
+        working-directory: ./backend/build/libs
