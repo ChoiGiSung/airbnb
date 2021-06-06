@@ -42,6 +42,7 @@ jobs:
       - name: Make zip file
         run: zip -qq -r ./$GITHUB_SHA.zip .
         shell: bash
+        working-directory: ./BE/build/libs
         
         
         # 인증 절차
