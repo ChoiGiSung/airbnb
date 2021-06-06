@@ -10,25 +10,14 @@ on:
   pull_request:
     branches: [ backend-deploy ]
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  deploy:
+    name : deploy
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name : checkout
         uses: actions/checkout@v2
-        
-      # 디렉토리 생성
-      - name: Make Directory
-        run: mkdir -p deploy
         
       # 메시지를 출력한다.
       - name: Run a one-line script
@@ -42,37 +31,40 @@ jobs:
         
         # Gradle에 실행 권한을 부여한다.
       - name: Grant execute permission for gradlew
-        run: |
-          echo $pwd
-          chmod +x gradlew
+        run: chmod +x gradlew
         shell: bash
         working-directory: ./backend
         
-        
-        # Gradle을 활용해 배포한다.
+        # 빌드
       - name: Build with Gradle
-        run: |
-          ./gradlew build -x test
+        run: ./gradlew build
         shell: bash
-        working-directory: ./backend
         
         
-        # 버전마다 이름을 다르게 하기 위해서 GITHUB_SHA라고 하는 해시이름을 활용하여 zip 파일을 만든다.
-        # CodeDeploy를 사용하기 위해서는 S3를 거쳐야 한다. 따라서 압축된 파일을 만들어주고 이를 옮긴다.
-      - name: Make zip file
-        run: zip -qq -r ./sample.zip .
-        shell: bash
-        working-directory: ./backend/build/libs
+#         # Gradle을 활용해 배포한다.
+#       - name: Build with Gradle
+#         run: |
+#           ./gradlew build -x test
+#         shell: bash
+#         working-directory: ./backend
         
         
-        # 인증 절차
-      - name: deploy
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_accesskey }}
-          aws-secret-access-key: ${{ secrets.AWS_secretkey }}
-          aws-region: ap-northeast-2
+#         # 버전마다 이름을 다르게 하기 위해서 GITHUB_SHA라고 하는 해시이름을 활용하여 zip 파일을 만든다.
+#         # CodeDeploy를 사용하기 위해서는 S3를 거쳐야 한다. 따라서 압축된 파일을 만들어주고 이를 옮긴다.
+#       - name: Make zip file
+#         run: zip -qq -r ./sample.zip .
+#         shell: bash
+#         working-directory: ./backend/build/libs
+        
+        
+#         # 인증 절차
+#       - name: deploy
+#         uses: aws-actions/configure-aws-credentials@v1
+#         with:
+#           aws-access-key-id: ${{ secrets.AWS_accesskey }}
+#           aws-secret-access-key: ${{ secrets.AWS_secretkey }}
+#           aws-region: ap-northeast-2
           
-      - name: Upload to S3
-        run: aws s3 cp --region ap-northeast-2 --acl private ./sample.zip s3://coco-baseball/
-        working-directory: ./backend/build/libs
+#       - name: Upload to S3
+#         run: aws s3 cp --region ap-northeast-2 --acl private ./sample.zip s3://coco-baseball/
+#         working-directory: ./backend/build/libs
