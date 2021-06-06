@@ -9,7 +9,7 @@ import {
 import ModalFee from './ModalFee'
 import useModalCtrl from '../../../customHook/useModalCtrlArray'
 import { useRecoilValue, useRecoilState, useSetRecoilState } from 'recoil'
-import { FeeMsg, FeeMin, FeeMax, defaultValue, FeeMinChange, FeeMaxChange } from '../../../customHook/atoms'
+import { FeeMsg, FeeMin, defaultValue, FeeMinChange, FeeMaxChange } from '../../../customHook/atoms'
 import useXclick from '../../../customHook/useXclick'
 
 const Fee = () => {

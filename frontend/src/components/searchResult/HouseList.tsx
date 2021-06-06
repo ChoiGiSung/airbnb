@@ -42,7 +42,7 @@ function HouseList() {
       {roomDatas.map((el: any) => (
         <Column key={el.id} onClick={(e)=>handleModalClick(e, el)}>
           <div>
-            <img src={el.thumbnail_image} width='300' height='220' />
+            <img src={el.thumbnail_image} width='300' height='220' alt='room'/>
           </div>
           <InfoBlock>
             <FlexBox>
