@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import { useRecoilState, useSetRecoilState } from 'recoil'
 import { FeeMaxChange, FeeMinChange, FeeMin, FeeMax } from '../../../customHook/atoms'

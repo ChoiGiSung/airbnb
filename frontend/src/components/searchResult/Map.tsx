@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useSetRecoilState, useRecoilValue } from 'recoil'
+import { useRecoilValue } from 'recoil'
 import styled from 'styled-components'
 import { searchMap } from '../../customHook/axiosAPI'
 import { RoomData } from '../../customHook/atoms'
