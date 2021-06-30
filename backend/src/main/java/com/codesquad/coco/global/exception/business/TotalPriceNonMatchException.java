@@ -1,7 +1,7 @@
 package com.codesquad.coco.global.exception.business;
 
 import com.codesquad.coco.global.exception.ErrorCode;
-import com.codesquad.coco.room.model.Money;
+import com.codesquad.coco.domain.room.model.Money;
 
 public class TotalPriceNonMatchException extends BusinessException {
 

@@ -1,11 +1,11 @@
 package com.codesquad.coco;
 
 import com.codesquad.coco.global.exception.business.AlreadyReserved;
-import com.codesquad.coco.room.model.AdditionalCost;
-import com.codesquad.coco.room.model.Money;
-import com.codesquad.coco.room.model.ReservationList;
-import com.codesquad.coco.room.model.Room;
-import com.codesquad.coco.user.model.Reservation;
+import com.codesquad.coco.domain.room.model.AdditionalCost;
+import com.codesquad.coco.domain.room.model.Money;
+import com.codesquad.coco.domain.room.model.ReservationList;
+import com.codesquad.coco.domain.room.model.Room;
+import com.codesquad.coco.domain.user.model.Reservation;
 import com.codesquad.coco.utils.LocalDateUtil;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.DisplayName;

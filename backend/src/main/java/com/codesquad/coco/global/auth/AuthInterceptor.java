@@ -1,7 +1,7 @@
 package com.codesquad.coco.global.auth;
 
 import com.codesquad.coco.global.exception.auth.NotLoggedInException;
-import com.codesquad.coco.oauth.ServerKey;
+import com.codesquad.coco.domain.oauth.ServerKey;
 import jwt.JWTUtils;
 import org.springframework.http.HttpMethod;
 import org.springframework.web.method.HandlerMethod;

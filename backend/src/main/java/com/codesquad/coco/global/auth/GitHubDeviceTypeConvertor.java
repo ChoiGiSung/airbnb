@@ -1,7 +1,7 @@
 package com.codesquad.coco.global.auth;
 
 import com.codesquad.coco.global.exception.auth.UnknownDevice;
-import com.codesquad.coco.oauth.gitoauth.GitHubDeviceType;
+import com.codesquad.coco.domain.oauth.gitoauth.GitHubDeviceType;
 import org.springframework.core.convert.converter.Converter;
 
 public class GitHubDeviceTypeConvertor implements Converter<String, GitHubDeviceType> {

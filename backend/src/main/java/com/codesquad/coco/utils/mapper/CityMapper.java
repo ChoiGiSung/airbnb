@@ -1,6 +1,6 @@
 package com.codesquad.coco.utils.mapper;
 
-import com.codesquad.coco.city.City;
+import com.codesquad.coco.domain.city.City;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

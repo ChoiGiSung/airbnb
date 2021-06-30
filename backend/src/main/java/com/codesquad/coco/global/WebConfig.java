@@ -3,7 +3,7 @@ package com.codesquad.coco.global;
 import com.codesquad.coco.global.auth.AuthInterceptor;
 import com.codesquad.coco.global.auth.GitHubDeviceTypeConvertor;
 import com.codesquad.coco.global.auth.UserIdHandlerMethodResolver;
-import com.codesquad.coco.oauth.ServerKey;
+import com.codesquad.coco.domain.oauth.ServerKey;
 import com.codesquad.coco.utils.PropertyUtil;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

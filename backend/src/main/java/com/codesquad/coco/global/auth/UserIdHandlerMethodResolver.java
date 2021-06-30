@@ -1,6 +1,6 @@
 package com.codesquad.coco.global.auth;
 
-import com.codesquad.coco.oauth.ServerKey;
+import com.codesquad.coco.domain.oauth.ServerKey;
 import jwt.JWTUtils;
 import org.springframework.core.MethodParameter;
 import org.springframework.web.bind.support.WebDataBinderFactory;

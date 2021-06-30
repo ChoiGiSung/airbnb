@@ -1,6 +1,6 @@
 package com.codesquad.coco.utils.mapper;
 
-import com.codesquad.coco.image.Image;
+import com.codesquad.coco.domain.image.Image;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
